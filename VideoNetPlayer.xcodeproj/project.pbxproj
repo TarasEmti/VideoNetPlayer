@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		ADAB2701220352960080A411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB2700220352960080A411 /* AppDelegate.swift */; };
-		ADAB2703220352960080A411 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB2702220352960080A411 /* ViewController.swift */; };
-		ADAB2706220352960080A411 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2704220352960080A411 /* Main.storyboard */; };
 		ADAB2708220352970080A411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2707220352970080A411 /* Assets.xcassets */; };
 		ADAB270B220352970080A411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2709220352970080A411 /* LaunchScreen.storyboard */; };
+		ADAB2714220357900080A411 /* VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB2712220357900080A411 /* VideoPlayerVC.swift */; };
+		ADAB2715220357900080A411 /* VideoPlayerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2713220357900080A411 /* VideoPlayerVC.xib */; };
+		ADAB271822035B2F0080A411 /* VideoPlayerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB271722035B2F0080A411 /* VideoPlayerVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ADAB26FD220352960080A411 /* VideoNetPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoNetPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAB2700220352960080A411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ADAB2702220352960080A411 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		ADAB2705220352960080A411 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADAB2707220352970080A411 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADAB270A220352970080A411 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADAB270C220352970080A411 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADAB2712220357900080A411 /* VideoPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVC.swift; sourceTree = "<group>"; };
+		ADAB2713220357900080A411 /* VideoPlayerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayerVC.xib; sourceTree = "<group>"; };
+		ADAB271722035B2F0080A411 /* VideoPlayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +57,22 @@
 			isa = PBXGroup;
 			children = (
 				ADAB2700220352960080A411 /* AppDelegate.swift */,
-				ADAB2702220352960080A411 /* ViewController.swift */,
-				ADAB2704220352960080A411 /* Main.storyboard */,
+				ADAB27162203579B0080A411 /* VideoPlayer */,
 				ADAB2707220352970080A411 /* Assets.xcassets */,
 				ADAB2709220352970080A411 /* LaunchScreen.storyboard */,
 				ADAB270C220352970080A411 /* Info.plist */,
 			);
 			path = VideoNetPlayer;
+			sourceTree = "<group>";
+		};
+		ADAB27162203579B0080A411 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB2712220357900080A411 /* VideoPlayerVC.swift */,
+				ADAB2713220357900080A411 /* VideoPlayerVC.xib */,
+				ADAB271722035B2F0080A411 /* VideoPlayerVM.swift */,
+			);
+			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +135,7 @@
 			files = (
 				ADAB270B220352970080A411 /* LaunchScreen.storyboard in Resources */,
 				ADAB2708220352970080A411 /* Assets.xcassets in Resources */,
-				ADAB2706220352960080A411 /* Main.storyboard in Resources */,
+				ADAB2715220357900080A411 /* VideoPlayerVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +146,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADAB2703220352960080A411 /* ViewController.swift in Sources */,
 				ADAB2701220352960080A411 /* AppDelegate.swift in Sources */,
+				ADAB271822035B2F0080A411 /* VideoPlayerVM.swift in Sources */,
+				ADAB2714220357900080A411 /* VideoPlayerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ADAB2704220352960080A411 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ADAB2705220352960080A411 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ADAB2709220352970080A411 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  VideoPlayerVC.swift
 //  VideoNetPlayer
 //
 //  Created by Тарас Минин on 31/01/2019.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class VideoPlayerVC: UIViewController {
+    
+    let viewModel = VideoPlayerVM()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-
 }
-

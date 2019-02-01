@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BAEA0097D50A4FBBEEB0510 /* Pods_VideoNetPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFDFBFF5D26D991BA4BC0AC /* Pods_VideoNetPlayer.framework */; };
 		ADAB2701220352960080A411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB2700220352960080A411 /* AppDelegate.swift */; };
 		ADAB2708220352970080A411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2707220352970080A411 /* Assets.xcassets */; };
 		ADAB270B220352970080A411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2709220352970080A411 /* LaunchScreen.storyboard */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EFDFBFF5D26D991BA4BC0AC /* Pods_VideoNetPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoNetPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D4B3D7C222D9D388D81C6EF /* Pods-VideoNetPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoNetPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoNetPlayer/Pods-VideoNetPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		ADAB26FD220352960080A411 /* VideoNetPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoNetPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAB2700220352960080A411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADAB2707220352970080A411 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		ADAB2712220357900080A411 /* VideoPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVC.swift; sourceTree = "<group>"; };
 		ADAB2713220357900080A411 /* VideoPlayerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayerVC.xib; sourceTree = "<group>"; };
 		ADAB271722035B2F0080A411 /* VideoPlayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVM.swift; sourceTree = "<group>"; };
+		CBD6D0B5A032EC0895CA8299 /* Pods-VideoNetPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoNetPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoNetPlayer/Pods-VideoNetPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BAEA0097D50A4FBBEEB0510 /* Pods_VideoNetPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B6BD3FD1AF8719658504AA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EFDFBFF5D26D991BA4BC0AC /* Pods_VideoNetPlayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A5287D1E6FD489A74D6254D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CBD6D0B5A032EC0895CA8299 /* Pods-VideoNetPlayer.debug.xcconfig */,
+				6D4B3D7C222D9D388D81C6EF /* Pods-VideoNetPlayer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		ADAB26F4220352950080A411 = {
 			isa = PBXGroup;
 			children = (
 				ADAB26FF220352960080A411 /* VideoNetPlayer */,
 				ADAB26FE220352960080A411 /* Products */,
+				9A5287D1E6FD489A74D6254D /* Pods */,
+				0B6BD3FD1AF8719658504AA7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,9 +106,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADAB270F220352970080A411 /* Build configuration list for PBXNativeTarget "VideoNetPlayer" */;
 			buildPhases = (
+				FC8074A136B2526DB46BED7B /* [CP] Check Pods Manifest.lock */,
 				ADAB26F9220352960080A411 /* Sources */,
 				ADAB26FA220352960080A411 /* Frameworks */,
 				ADAB26FB220352960080A411 /* Resources */,
+				A5483A8A30540B3CEB6024CC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,6 +166,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A5483A8A30540B3CEB6024CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VideoNetPlayer/Pods-VideoNetPlayer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VideoNetPlayer/Pods-VideoNetPlayer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC8074A136B2526DB46BED7B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VideoNetPlayer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ADAB26F9220352960080A411 /* Sources */ = {
@@ -284,6 +361,7 @@
 		};
 		ADAB2710220352970080A411 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBD6D0B5A032EC0895CA8299 /* Pods-VideoNetPlayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +380,7 @@
 		};
 		ADAB2711220352970080A411 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D4B3D7C222D9D388D81C6EF /* Pods-VideoNetPlayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

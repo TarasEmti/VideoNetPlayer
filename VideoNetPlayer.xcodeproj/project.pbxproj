@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7BAEA0097D50A4FBBEEB0510 /* Pods_VideoNetPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFDFBFF5D26D991BA4BC0AC /* Pods_VideoNetPlayer.framework */; };
+		AD8A79762204B8B300B0989F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A79752204B8B300B0989F /* String+Ext.swift */; };
 		ADAB2701220352960080A411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB2700220352960080A411 /* AppDelegate.swift */; };
 		ADAB2708220352970080A411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2707220352970080A411 /* Assets.xcassets */; };
 		ADAB270B220352970080A411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2709220352970080A411 /* LaunchScreen.storyboard */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		0EFDFBFF5D26D991BA4BC0AC /* Pods_VideoNetPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoNetPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D4B3D7C222D9D388D81C6EF /* Pods-VideoNetPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoNetPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoNetPlayer/Pods-VideoNetPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		AD8A79752204B8B300B0989F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		ADAB26FD220352960080A411 /* VideoNetPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoNetPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAB2700220352960080A411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADAB2707220352970080A411 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AD8A79742204B88100B0989F /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				AD8A79752204B8B300B0989F /* String+Ext.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		ADAB26F4220352950080A411 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +90,7 @@
 		ADAB26FF220352960080A411 /* VideoNetPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				AD8A79742204B88100B0989F /* Support */,
 				ADAB2700220352960080A411 /* AppDelegate.swift */,
 				ADAB27162203579B0080A411 /* VideoPlayer */,
 				ADAB2707220352970080A411 /* Assets.xcassets */,
@@ -225,6 +236,7 @@
 			files = (
 				ADAB2701220352960080A411 /* AppDelegate.swift in Sources */,
 				ADAB271822035B2F0080A411 /* VideoPlayerVM.swift in Sources */,
+				AD8A79762204B8B300B0989F /* String+Ext.swift in Sources */,
 				ADAB2714220357900080A411 /* VideoPlayerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

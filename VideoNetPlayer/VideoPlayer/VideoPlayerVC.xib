@@ -12,6 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoPlayerVC" customModule="VideoNetPlayer" customModuleProvider="target">
             <connections>
+                <outlet property="downloadButton" destination="gwl-pJ-3mf" id="wrW-Pp-cwD"/>
+                <outlet property="linkTitleLabel" destination="AOE-IY-GbQ" id="iaA-ZL-P4V"/>
+                <outlet property="progressBar" destination="UqV-mn-5mT" id="oKg-04-xYT"/>
+                <outlet property="urlTextField" destination="edu-jy-4uN" id="UQx-bB-VLc"/>
+                <outlet property="videoPlayerView" destination="JS4-jo-QIW" id="6Bs-N5-24L"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,33 +32,18 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="http://..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edu-jy-4uN">
-                    <rect key="frame" x="20" y="125" width="277" height="30"/>
+                    <rect key="frame" x="20" y="125" width="335" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JS4-jo-QIW">
                     <rect key="frame" x="20" y="175" width="335" height="188.5"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWs-ir-yDy">
-                            <rect key="frame" x="130.5" y="79" width="74" height="30"/>
-                            <state key="normal" title="Play/Pause"/>
-                        </button>
-                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="JS4-jo-QIW" secondAttribute="height" multiplier="16:9" id="88L-AE-3rw"/>
-                        <constraint firstItem="VWs-ir-yDy" firstAttribute="centerX" secondItem="JS4-jo-QIW" secondAttribute="centerX" id="FAF-MW-fnu"/>
-                        <constraint firstItem="VWs-ir-yDy" firstAttribute="centerY" secondItem="JS4-jo-QIW" secondAttribute="centerY" id="Rp8-2W-19Z"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9na-f2-jtt">
-                    <rect key="frame" x="305" y="125" width="50" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="50" id="3NZ-7X-0RQ"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwl-pJ-3mf">
                     <rect key="frame" x="20" y="373.5" width="335" height="30"/>
                     <state key="normal" title="Download"/>
@@ -67,17 +57,15 @@
                 <constraint firstItem="gwl-pJ-3mf" firstAttribute="top" secondItem="UqV-mn-5mT" secondAttribute="bottom" constant="8" id="0CF-eb-31g"/>
                 <constraint firstItem="edu-jy-4uN" firstAttribute="top" secondItem="AOE-IY-GbQ" secondAttribute="bottom" constant="8" id="2u1-4g-IbD"/>
                 <constraint firstItem="JS4-jo-QIW" firstAttribute="top" secondItem="edu-jy-4uN" secondAttribute="bottom" constant="20" id="4eb-Gh-2yd"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9na-f2-jtt" secondAttribute="trailing" constant="20" id="A9i-WE-Ki6"/>
                 <constraint firstItem="JS4-jo-QIW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Hv7-AI-Etz"/>
                 <constraint firstItem="AOE-IY-GbQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="M3Z-Cn-IfG"/>
                 <constraint firstItem="UqV-mn-5mT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="O0n-9v-SQ6"/>
-                <constraint firstItem="9na-f2-jtt" firstAttribute="leading" secondItem="edu-jy-4uN" secondAttribute="trailing" constant="8" id="OHd-02-Vds"/>
                 <constraint firstItem="gwl-pJ-3mf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="XTA-of-VKe"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AOE-IY-GbQ" secondAttribute="trailing" constant="20" id="ZDH-ea-nfa"/>
                 <constraint firstItem="edu-jy-4uN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="aNk-eQ-hFx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="edu-jy-4uN" secondAttribute="trailing" constant="20" id="dvY-Fo-Sic"/>
                 <constraint firstAttribute="trailing" secondItem="UqV-mn-5mT" secondAttribute="trailing" constant="20" id="fZa-g1-RJg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gwl-pJ-3mf" secondAttribute="trailing" constant="20" id="ikh-05-eTW"/>
-                <constraint firstItem="9na-f2-jtt" firstAttribute="top" secondItem="AOE-IY-GbQ" secondAttribute="bottom" constant="8" id="mK3-mX-Dwn"/>
                 <constraint firstItem="UqV-mn-5mT" firstAttribute="top" secondItem="JS4-jo-QIW" secondAttribute="bottom" id="mNX-z0-cE1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JS4-jo-QIW" secondAttribute="trailing" constant="20" id="pfR-Fn-AJi"/>
                 <constraint firstItem="AOE-IY-GbQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="tse-vR-62d"/>

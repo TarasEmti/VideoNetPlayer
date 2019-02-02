@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import AVKit
 import AVFoundation
 
@@ -18,25 +19,51 @@ class AVPlayerController: UIViewController {
     @IBOutlet weak var videoSlider: UISlider!
     
     private let playerLayer = AVPlayerLayer()
+    private let isHudShown = BehaviorRelay(value: false)
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupPlayerLayer()
+        bind()
+    }
+    
+    private func setupPlayerLayer() {
         view.layer.addSublayer(playerLayer)
         playerLayer.frame = view.frame
         playerLayer.videoGravity = .resizeAspectFill
         view.clipsToBounds = true
-        bind()
     }
     
     private func bind() {
         let gr = UITapGestureRecognizer(target: view, action: nil)
-        gr.rx.event.asObservable().subscribe { [weak self] (_) in
+        gr.rx.event.asObservable().subscribe(onNext: { [weak self] (_) in
             guard let this = self else { return }
-            print("hud show / hide")
-            this.hudViewLayer.isHidden = !this.hudViewLayer.isHidden
-        }.disposed(by: disposeBag)
-        hudViewLayer.addGestureRecognizer(gr)
+            let oldValue = this.isHudShown.value
+            this.isHudShown.accept(!oldValue)
+        }).disposed(by: disposeBag)
+        view.addGestureRecognizer(gr)
+        
+        isHudShown.asObservable().subscribe(onNext: { (isShown) in
+            UIView.animate(withDuration: 0.2, animations: { [weak self] in
+                guard let this = self else { return }
+                if isShown {
+                    this.hudViewLayer.alpha = 1
+                } else {
+                    this.hudViewLayer.alpha = 0
+                }
+                }, completion: nil)
+        }).disposed(by: disposeBag)
+        
+        playPauseButton.rx.tap.subscribe(onNext: { [weak self] _ in
+            if let player = self?.playerLayer.player {
+                if player.rate == 1 {
+                    player.pause()
+                } else {
+                    player.play()
+                }
+            }
+        }).disposed(by: disposeBag)
     }
     
     func loadVideo(url: URL) {
@@ -44,5 +71,6 @@ class AVPlayerController: UIViewController {
         playerLayer.player = player
         player.seek(to: .zero)
         player.play()
+        videoTitleLabel.text = url.lastPathComponent
     }
 }

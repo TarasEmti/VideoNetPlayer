@@ -13,17 +13,21 @@ import RxSwift
 class VideoPlayerVC: UIViewController {
     
     @IBOutlet weak private var linkTitleLabel: UILabel!
-    @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak private var urlTextField: UITextField!
     @IBOutlet weak private var videoPlayerView: UIView!
     @IBOutlet weak private var downloadButton: UIButton!
     @IBOutlet weak private var progressBar: UIProgressView!
     
-    let disposeBag = DisposeBag()
+    private let videoPlayer = AVPlayerController()
     
-    let viewModel = VideoPlayerVM()
+    private let disposeBag = DisposeBag()
+    let viewModel = VideoPlayerVM(videoLink: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4")
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addChild(videoPlayer)
+        videoPlayerView.addSubview(videoPlayer.view)
+        videoPlayer.view.frame = videoPlayerView.bounds
         progressBarSetup()
         urlTextFieldSetup()
         bind()
@@ -42,16 +46,54 @@ class VideoPlayerVC: UIViewController {
     }
     
     private func bind() {
+        urlTextField.text = viewModel.videoLink
         downloadButton.setTitle(viewModel.downloadButtonText, for: .normal)
         linkTitleLabel.text = viewModel.linkLabelText
+        
         _ = urlTextField.rx.text
             .orEmpty
             .map { $0.isValidURL() }
             .bind(to: downloadButton.rx.isEnabled)
             .disposed(by: disposeBag)
-        _ = downloadButton.rx.tap.subscribe(onNext: { _ in
+        
+        _ = downloadButton.rx.tap.subscribe(onNext: { [weak self] _ in
             print("tap")
-        })
+            guard let this = self,
+             let url = URL(string: this.urlTextField.text ?? "") else {
+                return
+            }
+            DownloadManager.shared.downloadData(from: url)
+                .observeOn(MainScheduler.asyncInstance)
+                .subscribe(onNext: { (data) in
+                    do {
+                        let df = DateFormatter()
+                        df.dateFormat = "yyyy-MM-dd_HH-mm-ss"
+                        let videoName = String(format: "tempVideo-%@.%@", df.string(from: Date()),url.pathExtension)
+                        let temp = FileManager.default.temporaryDirectory.appendingPathComponent(videoName)
+                        try data.write(to: temp)
+                        this.videoPlayer.loadVideo(url: temp)
+                    } catch {
+                        print(error)
+                    }
+                }, onError: { error in
+                    let downloadError = error as? DownloadError
+                    let alert = UIAlertController(title: "Ошибка", message: downloadError?.message, preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(okAction)
+                    this.present(alert, animated: true, completion: nil)
+                }).disposed(by: this.disposeBag)
+        }).disposed(by: disposeBag)
+        
+        _ = DownloadManager.shared.isBusy.asObservable()
+            .map { !$0 }
+            .observeOn(MainScheduler.asyncInstance)
+            .bind(to: progressBar.rx.isHidden)
+            .disposed(by: disposeBag)
+
+        _ = DownloadManager.shared.downloadProgress.asObservable()
+            .observeOn(MainScheduler.asyncInstance)
+            .bind(to: progressBar.rx.progress)
+            .disposed(by: disposeBag)
     }
 }
 

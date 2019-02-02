@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7BAEA0097D50A4FBBEEB0510 /* Pods_VideoNetPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFDFBFF5D26D991BA4BC0AC /* Pods_VideoNetPlayer.framework */; };
 		AD8A79762204B8B300B0989F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A79752204B8B300B0989F /* String+Ext.swift */; };
+		AD8A79782205484600B0989F /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A79772205484600B0989F /* DownloadManager.swift */; };
+		AD8A797B220556C700B0989F /* AVPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A7979220556C700B0989F /* AVPlayerController.swift */; };
+		AD8A797C220556C700B0989F /* AVPlayerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8A797A220556C700B0989F /* AVPlayerController.xib */; };
 		ADAB2701220352960080A411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB2700220352960080A411 /* AppDelegate.swift */; };
 		ADAB2708220352970080A411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2707220352970080A411 /* Assets.xcassets */; };
 		ADAB270B220352970080A411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2709220352970080A411 /* LaunchScreen.storyboard */; };
@@ -21,6 +24,9 @@
 		0EFDFBFF5D26D991BA4BC0AC /* Pods_VideoNetPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoNetPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D4B3D7C222D9D388D81C6EF /* Pods-VideoNetPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoNetPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoNetPlayer/Pods-VideoNetPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		AD8A79752204B8B300B0989F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		AD8A79772205484600B0989F /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		AD8A7979220556C700B0989F /* AVPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerController.swift; sourceTree = "<group>"; };
+		AD8A797A220556C700B0989F /* AVPlayerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AVPlayerController.xib; sourceTree = "<group>"; };
 		ADAB26FD220352960080A411 /* VideoNetPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoNetPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAB2700220352960080A411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADAB2707220352970080A411 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,6 +102,7 @@
 				ADAB2707220352970080A411 /* Assets.xcassets */,
 				ADAB2709220352970080A411 /* LaunchScreen.storyboard */,
 				ADAB270C220352970080A411 /* Info.plist */,
+				AD8A79772205484600B0989F /* DownloadManager.swift */,
 			);
 			path = VideoNetPlayer;
 			sourceTree = "<group>";
@@ -106,6 +113,8 @@
 				ADAB2712220357900080A411 /* VideoPlayerVC.swift */,
 				ADAB2713220357900080A411 /* VideoPlayerVC.xib */,
 				ADAB271722035B2F0080A411 /* VideoPlayerVM.swift */,
+				AD8A7979220556C700B0989F /* AVPlayerController.swift */,
+				AD8A797A220556C700B0989F /* AVPlayerController.xib */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -173,6 +182,7 @@
 				ADAB270B220352970080A411 /* LaunchScreen.storyboard in Resources */,
 				ADAB2708220352970080A411 /* Assets.xcassets in Resources */,
 				ADAB2715220357900080A411 /* VideoPlayerVC.xib in Resources */,
+				AD8A797C220556C700B0989F /* AVPlayerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,9 +245,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADAB2701220352960080A411 /* AppDelegate.swift in Sources */,
+				AD8A79782205484600B0989F /* DownloadManager.swift in Sources */,
 				ADAB271822035B2F0080A411 /* VideoPlayerVM.swift in Sources */,
 				AD8A79762204B8B300B0989F /* String+Ext.swift in Sources */,
 				ADAB2714220357900080A411 /* VideoPlayerVC.swift in Sources */,
+				AD8A797B220556C700B0989F /* AVPlayerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,4 +13,10 @@ class VideoPlayerVM {
     let cancelDownloadButtonText = "Cancel"
     let linkLabelText = "Enter video URL:"
     let urlTextFieldPlaceholder = "http://"
+    
+    var videoLink: String?
+    
+    init(videoLink: String? = nil) {
+        self.videoLink = videoLink
+    }
 }

@@ -76,15 +76,9 @@ extension DownloadManager: URLSessionTaskDelegate {
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        print("ERROR")
         if let error = error {
             observer?.onError(DownloadError(code: -2, message: error.localizedDescription))
             downloadComplete()
         }
     }
-}
-
-struct DownloadError: Error {
-    let code: Int?
-    let message: String
 }

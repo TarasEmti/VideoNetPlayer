@@ -13,6 +13,7 @@
 		AD8A797B220556C700B0989F /* AVPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A7979220556C700B0989F /* AVPlayerController.swift */; };
 		AD8A797C220556C700B0989F /* AVPlayerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8A797A220556C700B0989F /* AVPlayerController.xib */; };
 		AD8A797E22060C5A00B0989F /* CMTime+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A797D22060C5A00B0989F /* CMTime+Ext.swift */; };
+		AD8A79812206E26C00B0989F /* DownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A79802206E26C00B0989F /* DownloadError.swift */; };
 		ADAB2701220352960080A411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB2700220352960080A411 /* AppDelegate.swift */; };
 		ADAB2708220352970080A411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2707220352970080A411 /* Assets.xcassets */; };
 		ADAB270B220352970080A411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2709220352970080A411 /* LaunchScreen.storyboard */; };
@@ -29,6 +30,7 @@
 		AD8A7979220556C700B0989F /* AVPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerController.swift; sourceTree = "<group>"; };
 		AD8A797A220556C700B0989F /* AVPlayerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AVPlayerController.xib; sourceTree = "<group>"; };
 		AD8A797D22060C5A00B0989F /* CMTime+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Ext.swift"; sourceTree = "<group>"; };
+		AD8A79802206E26C00B0989F /* DownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadError.swift; sourceTree = "<group>"; };
 		ADAB26FD220352960080A411 /* VideoNetPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoNetPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAB2700220352960080A411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADAB2707220352970080A411 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,13 +71,40 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		AD8A79742204B88100B0989F /* Support */ = {
+		AD8A79742204B88100B0989F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				AD8A79752204B8B300B0989F /* String+Ext.swift */,
 				AD8A797D22060C5A00B0989F /* CMTime+Ext.swift */,
 			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AD8A797F2206E24700B0989F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AD8A79772205484600B0989F /* DownloadManager.swift */,
+				AD8A79802206E26C00B0989F /* DownloadError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AD8A79822206E29E00B0989F /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB2709220352970080A411 /* LaunchScreen.storyboard */,
+				ADAB270C220352970080A411 /* Info.plist */,
+			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		AD8A79832206E2F500B0989F /* AVPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				AD8A7979220556C700B0989F /* AVPlayerController.swift */,
+				AD8A797A220556C700B0989F /* AVPlayerController.xib */,
+			);
+			path = AVPlayer;
 			sourceTree = "<group>";
 		};
 		ADAB26F4220352950080A411 = {
@@ -99,13 +128,12 @@
 		ADAB26FF220352960080A411 /* VideoNetPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				AD8A79742204B88100B0989F /* Support */,
 				ADAB2700220352960080A411 /* AppDelegate.swift */,
-				ADAB27162203579B0080A411 /* VideoPlayer */,
 				ADAB2707220352970080A411 /* Assets.xcassets */,
-				ADAB2709220352970080A411 /* LaunchScreen.storyboard */,
-				ADAB270C220352970080A411 /* Info.plist */,
-				AD8A79772205484600B0989F /* DownloadManager.swift */,
+				AD8A79742204B88100B0989F /* Extensions */,
+				AD8A797F2206E24700B0989F /* Network */,
+				AD8A79822206E29E00B0989F /* Support */,
+				ADAB27162203579B0080A411 /* VideoPlayer */,
 			);
 			path = VideoNetPlayer;
 			sourceTree = "<group>";
@@ -116,8 +144,7 @@
 				ADAB2712220357900080A411 /* VideoPlayerVC.swift */,
 				ADAB2713220357900080A411 /* VideoPlayerVC.xib */,
 				ADAB271722035B2F0080A411 /* VideoPlayerVM.swift */,
-				AD8A7979220556C700B0989F /* AVPlayerController.swift */,
-				AD8A797A220556C700B0989F /* AVPlayerController.xib */,
+				AD8A79832206E2F500B0989F /* AVPlayer */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -247,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD8A79812206E26C00B0989F /* DownloadError.swift in Sources */,
 				ADAB2701220352960080A411 /* AppDelegate.swift in Sources */,
 				AD8A79782205484600B0989F /* DownloadManager.swift in Sources */,
 				ADAB271822035B2F0080A411 /* VideoPlayerVM.swift in Sources */,

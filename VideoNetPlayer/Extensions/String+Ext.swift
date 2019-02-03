@@ -18,7 +18,7 @@ extension String {
     
     func isValidVideoURL() -> Bool {
         if self.isValidURL() {
-            let videoFormatPrefix = [".mp4", ".mov", ".flv"]
+            let videoFormatPrefix = [".mp4", ".mov"]
             for prefix in videoFormatPrefix {
                 if self.hasPrefix(prefix) {
                     return true

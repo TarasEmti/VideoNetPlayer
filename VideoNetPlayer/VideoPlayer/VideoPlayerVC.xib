@@ -40,7 +40,7 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwl-pJ-3mf">
                     <rect key="frame" x="20" y="347.33333333333331" width="335" height="30"/>
-                    <state key="normal" title="Download"/>
+                    <state key="normal" title="Upload"/>
                 </button>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UqV-mn-5mT">
                     <rect key="frame" x="20" y="361.33333333333331" width="335" height="2"/>

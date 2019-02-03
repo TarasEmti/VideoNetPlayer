@@ -10,7 +10,7 @@
 "Aloha Test" = "Алоха Тест";
 "Error" = "Ошибка";
 "OK" = "OK";
-"Download" = "Скачать";
+"Upload" = "Загрузить";
 "Cancel" = "Отмена";
 "Enter video URL:" = "Введите URL видео:";
 "videoSupportMessage" = "Поддерживаемые форматы видео:\n";

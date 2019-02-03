@@ -33,17 +33,23 @@ class DiskManager {
     }
     let supportedVideo = ["mp4", "mov", "m4v"]
     
-    func saveVideo(data: Data, pathExtension: String) throws -> URL {
+    func saveVideo(data: Data, name: String) throws -> URL {
         do {
-            let df = DateFormatter()
-            df.dateFormat = "yyyy-MM-dd_HH-mm-ss"
-            let videoName = String(format: "tempVideo-%@.%@", df.string(from: Date()), pathExtension)
-            let videoUrl = tempVideoFolder.appendingPathComponent(videoName)
+            let videoUrl = tempVideoFolder.appendingPathComponent(name)
             try data.write(to: videoUrl)
             print("New video at: \(videoUrl)")
             return videoUrl
         } catch {
             throw error
+        }
+    }
+    
+    func isVideoExist(downloadURL url: URL) -> URL? {
+        let videoPath = tempVideoFolder.appendingPathComponent(url.lastPathComponent)
+        if FileManager.default.fileExists(atPath: videoPath.path) {
+            return videoPath
+        } else {
+            return nil
         }
     }
 }

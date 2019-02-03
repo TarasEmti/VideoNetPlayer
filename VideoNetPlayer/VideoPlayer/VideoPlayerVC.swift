@@ -22,7 +22,7 @@ class VideoPlayerVC: UIViewController {
     private let videoPlayer = AVPlayerController()
     
     private let disposeBag = DisposeBag()
-    let viewModel = VideoPlayerVM(videoLink: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4")
+    let viewModel = VideoPlayerVM()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +66,12 @@ class VideoPlayerVC: UIViewController {
         cancelButton.setTitle(viewModel.cancelDownloadButtonText, for: .normal)
         linkTitleLabel.text = viewModel.linkLabelText
         
+        viewModel.videoUrl.subscribe(onNext: { [weak self] (url) in
+            guard let this = self,
+                let url = url else { return }
+            this.videoPlayer.loadVideo(url: url)
+        }).disposed(by: disposeBag)
+        
         urlTextField.rx.text
             .orEmpty
             .map { $0.isValidVideoURL() }
@@ -77,22 +83,8 @@ class VideoPlayerVC: UIViewController {
              let url = URL(string: this.urlTextField.text ?? "") else {
                 return
             }
-            DownloadManager.shared.downloadData(from: url)
-                .observeOn(MainScheduler.asyncInstance)
-                .subscribe(onNext: { (data) in
-                    do {
-                        let videoUrl = try DiskManager.shared.saveVideo(data: data, pathExtension: url.pathExtension)
-                        this.videoPlayer.loadVideo(url: videoUrl)
-                    } catch {
-                        print(error)
-                    }
-                }, onError: { error in
-                    let downloadError = error as? DownloadError
-                    let alert = UIAlertController(title: "Error".localized, message: downloadError?.message, preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
-                    alert.addAction(okAction)
-                    this.present(alert, animated: true, completion: nil)
-                }).disposed(by: this.disposeBag)
+            this.urlTextField.resignFirstResponder()
+            this.viewModel.uploadVideo(from: url)
         }).disposed(by: disposeBag)
         
         DownloadManager.shared.isBusy.asObservable()
@@ -123,14 +115,15 @@ class VideoPlayerVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        let file = FileManager.default.temporaryDirectory.appendingPathComponent("tempVideo-2019-02-03_13-29-10.mp4")
-        videoPlayer.loadVideo(url: file)
+        #if DEBUG
+            urlTextField.text = "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4"
+        #endif
     }
     
     @IBAction func videoFormatInfo(_ sender: Any) {
         let videoSupportMessage = "videoSupportMessage".localized
         let supportFormat = String(format: "%@%@", videoSupportMessage, DiskManager.shared.supportedVideo.joined(separator: ", "))
-        UIAlertController.show(title: "Warning".localized, message: supportFormat, okAction: nil)
+        UIAlertController.show(title: "Warning".localized, message: supportFormat)
     }
 }
 

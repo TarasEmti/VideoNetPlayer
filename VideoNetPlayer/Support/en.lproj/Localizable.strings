@@ -10,7 +10,7 @@
 "Aloha Test" = "Aloha Test";
 "Error" = "Error";
 "OK" = "OK";
-"Download" = "Download";
+"Upload" = "Upload";
 "Cancel" = "Cancel";
 "Enter video URL:" = "Enter video URL:";
 "videoSupportMessage" = "Video supported formats:\n";

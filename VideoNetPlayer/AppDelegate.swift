@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow()
         window.makeKeyAndVisible()
         let mainScreen = VideoPlayerVC()
-        window.rootViewController = mainScreen
+        let nc = UINavigationController(rootViewController: mainScreen)
+        window.rootViewController = nc
         self.window = window
         
         return true

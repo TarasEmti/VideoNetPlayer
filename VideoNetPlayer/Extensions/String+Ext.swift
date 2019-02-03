@@ -10,7 +10,7 @@ import UIKit
 
 extension String {
     func isValidURL() -> Bool {
-        if let url = URL(string: self) {
+        if self.hasPrefix("http"), let url = URL(string: self) {
             return UIApplication.shared.canOpenURL(url)
         }
         return false
@@ -18,7 +18,7 @@ extension String {
     
     func isValidVideoURL() -> Bool {
         if self.isValidURL() {
-            let videoFormatPrefix = [".mp4", ".mov"]
+            let videoFormatPrefix = DiskManager.shared.supportedVideo
             for prefix in videoFormatPrefix {
                 if self.hasPrefix(prefix) {
                     return true

@@ -14,17 +14,18 @@ class DiskManager {
     
     private init() {}
     
-    var tempVideoFolder: String {
-        let url = FileManager.default.temporaryDirectory.appendingPathComponent("/alohaVideos")
-        return url.path
+    var tempVideoFolder: URL {
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("aloha-videos")
+        return url
     }
+    let supportedVideo = ["mp4", "mov", "m4v"]
     
     func saveVideo(data: Data, pathExtension: String) throws -> URL {
         do {
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd_HH-mm-ss"
             let videoName = String(format: "tempVideo-%@.%@", df.string(from: Date()), pathExtension)
-            let videoUrl = FileManager.default.temporaryDirectory.appendingPathComponent(videoName)
+            let videoUrl = tempVideoFolder.appendingPathComponent(videoName)
             try data.write(to: videoUrl)
             print("New video at: \(videoUrl)")
             return videoUrl

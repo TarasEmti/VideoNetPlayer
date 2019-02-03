@@ -23,7 +23,6 @@ class AVPlayerController: UIViewController {
     private let playerLayer = AVPlayerLayer()
     private var observerToken: Any?
     private let isHudShown = BehaviorRelay(value: false)
-    private let isPlayerPlaying = BehaviorRelay(value: false)
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -40,6 +39,18 @@ class AVPlayerController: UIViewController {
         bind()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if playerLayer.player?.currentItem != nil {
+            isHudShown.accept(true)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        playerLayer.player?.pause()
+    }
+    
     deinit {
         releasePeriodicTimeObserver()
     }
@@ -50,6 +61,17 @@ class AVPlayerController: UIViewController {
         playerLayer.videoGravity = .resizeAspectFill
         view.clipsToBounds = true
         let player = AVPlayer()
+        player.rx.observe(Float.self, "rate").subscribe(onNext: { [weak self] (rate) in
+            if let rate = rate {
+                if rate == 0 {
+                    let playImage = UIImage(named: "player_play")
+                    self?.playPauseButton.setImage(playImage, for: .normal)
+                } else {
+                    let pauseImage = UIImage(named: "player_pause")
+                    self?.playPauseButton.setImage(pauseImage, for: .normal)
+                }
+            }
+        }).disposed(by: disposeBag)
         player.preventsDisplaySleepDuringVideoPlayback = true
         playerLayer.player = player
     }
@@ -88,21 +110,9 @@ class AVPlayerController: UIViewController {
                         player.seek(to: .zero)
                     }
                     player.play()
-                    self?.isPlayerPlaying.accept(true)
                 } else {
                     player.pause()
-                    self?.isPlayerPlaying.accept(false)
                 }
-            }
-        }).disposed(by: disposeBag)
-        
-        isPlayerPlaying.subscribe(onNext: { [weak self] (isPlaying) in
-            if isPlaying {
-                let pauseImage = UIImage(named: "player_pause")
-                self?.playPauseButton.setImage(pauseImage, for: .normal)
-            } else {
-                let playImage = UIImage(named: "player_play")
-                self?.playPauseButton.setImage(playImage, for: .normal)
             }
         }).disposed(by: disposeBag)
     }
@@ -114,7 +124,6 @@ class AVPlayerController: UIViewController {
             player.seek(to: .zero)
             addPeriodicTimeObserver()
             player.play()
-            isPlayerPlaying.accept(true)
             videoTitleLabel.text = String(format: "\t%@", url.lastPathComponent)
             videoLengthLabel.text = item.asset.duration.toString()
             videoSlider.maximumValue = Float(item.asset.duration.seconds)

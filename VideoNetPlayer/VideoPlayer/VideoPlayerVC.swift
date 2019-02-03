@@ -28,9 +28,28 @@ class VideoPlayerVC: UIViewController {
         super.viewDidLoad()
         addChild(videoPlayer)
         videoPlayerView.addSubview(videoPlayer.view)
-        videoPlayer.view.frame = videoPlayerView.bounds
+
+        navBarSetup()
         urlTextFieldSetup()
         bind()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        videoPlayer.view.frame = videoPlayerView.bounds
+    }
+    
+    private func navBarSetup() {
+        title = "Aloha"
+        let videoFolderItem = UIBarButtonItem(barButtonSystemItem: .organize, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = videoFolderItem
+        videoFolderItem.rx.tap.subscribe(onNext: { [weak self] _ in
+            guard let this = self else { return }
+            let vc = VideoStorageVC()
+            vc.viewModel.chosenItem.asObservable().filter({$0 != nil}).subscribe(onNext: { (url) in
+                this.videoPlayer.loadVideo(url: url!)
+            }).disposed(by: this.disposeBag)
+            this.show(vc, sender: self)
+        }).disposed(by: disposeBag)
     }
     
     private func urlTextFieldSetup() {

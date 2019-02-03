@@ -15,6 +15,8 @@
 		AD8A797E22060C5A00B0989F /* CMTime+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A797D22060C5A00B0989F /* CMTime+Ext.swift */; };
 		AD8A79812206E26C00B0989F /* DownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A79802206E26C00B0989F /* DownloadError.swift */; };
 		AD8A7986220725E900B0989F /* DiskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A7985220725E900B0989F /* DiskManager.swift */; };
+		AD8A798B22072F6300B0989F /* VideoStorageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A798A22072F6300B0989F /* VideoStorageVC.swift */; };
+		AD8A798D22072FD600B0989F /* VideoStorageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A798C22072FD600B0989F /* VideoStorageVM.swift */; };
 		ADAB2701220352960080A411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB2700220352960080A411 /* AppDelegate.swift */; };
 		ADAB2708220352970080A411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2707220352970080A411 /* Assets.xcassets */; };
 		ADAB270B220352970080A411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2709220352970080A411 /* LaunchScreen.storyboard */; };
@@ -33,6 +35,8 @@
 		AD8A797D22060C5A00B0989F /* CMTime+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Ext.swift"; sourceTree = "<group>"; };
 		AD8A79802206E26C00B0989F /* DownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadError.swift; sourceTree = "<group>"; };
 		AD8A7985220725E900B0989F /* DiskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskManager.swift; sourceTree = "<group>"; };
+		AD8A798A22072F6300B0989F /* VideoStorageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStorageVC.swift; sourceTree = "<group>"; };
+		AD8A798C22072FD600B0989F /* VideoStorageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStorageVM.swift; sourceTree = "<group>"; };
 		ADAB26FD220352960080A411 /* VideoNetPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoNetPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAB2700220352960080A411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADAB2707220352970080A411 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +120,15 @@
 			path = Disk;
 			sourceTree = "<group>";
 		};
+		AD8A798922072F3600B0989F /* VideoStorage */ = {
+			isa = PBXGroup;
+			children = (
+				AD8A798A22072F6300B0989F /* VideoStorageVC.swift */,
+				AD8A798C22072FD600B0989F /* VideoStorageVM.swift */,
+			);
+			path = VideoStorage;
+			sourceTree = "<group>";
+		};
 		ADAB26F4220352950080A411 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +150,7 @@
 		ADAB26FF220352960080A411 /* VideoNetPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				AD8A798922072F3600B0989F /* VideoStorage */,
 				AD8A7984220725C900B0989F /* Disk */,
 				ADAB2700220352960080A411 /* AppDelegate.swift */,
 				ADAB270C220352970080A411 /* Info.plist */,
@@ -285,8 +299,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD8A798B22072F6300B0989F /* VideoStorageVC.swift in Sources */,
 				AD8A79812206E26C00B0989F /* DownloadError.swift in Sources */,
 				ADAB2701220352960080A411 /* AppDelegate.swift in Sources */,
+				AD8A798D22072FD600B0989F /* VideoStorageVM.swift in Sources */,
 				AD8A79782205484600B0989F /* DownloadManager.swift in Sources */,
 				ADAB271822035B2F0080A411 /* VideoPlayerVM.swift in Sources */,
 				AD8A79762204B8B300B0989F /* String+Ext.swift in Sources */,

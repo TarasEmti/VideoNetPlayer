@@ -61,13 +61,8 @@ class VideoPlayerVC: UIViewController {
                 .observeOn(MainScheduler.asyncInstance)
                 .subscribe(onNext: { (data) in
                     do {
-                        let df = DateFormatter()
-                        df.dateFormat = "yyyy-MM-dd_HH-mm-ss"
-                        let videoName = String(format: "tempVideo-%@.%@", df.string(from: Date()),url.pathExtension)
-                        let temp = FileManager.default.temporaryDirectory.appendingPathComponent(videoName)
-                        try data.write(to: temp)
-                        print("New video at: \(temp)")
-                        this.videoPlayer.loadVideo(url: temp)
+                        let videoUrl = try DiskManager.shared.saveVideo(data: data, pathExtension: url.pathExtension)
+                        this.videoPlayer.loadVideo(url: videoUrl)
                     } catch {
                         print(error)
                     }

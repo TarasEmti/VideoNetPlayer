@@ -14,6 +14,7 @@
 		AD8A797C220556C700B0989F /* AVPlayerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8A797A220556C700B0989F /* AVPlayerController.xib */; };
 		AD8A797E22060C5A00B0989F /* CMTime+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A797D22060C5A00B0989F /* CMTime+Ext.swift */; };
 		AD8A79812206E26C00B0989F /* DownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A79802206E26C00B0989F /* DownloadError.swift */; };
+		AD8A7986220725E900B0989F /* DiskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A7985220725E900B0989F /* DiskManager.swift */; };
 		ADAB2701220352960080A411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB2700220352960080A411 /* AppDelegate.swift */; };
 		ADAB2708220352970080A411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2707220352970080A411 /* Assets.xcassets */; };
 		ADAB270B220352970080A411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2709220352970080A411 /* LaunchScreen.storyboard */; };
@@ -31,6 +32,7 @@
 		AD8A797A220556C700B0989F /* AVPlayerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AVPlayerController.xib; sourceTree = "<group>"; };
 		AD8A797D22060C5A00B0989F /* CMTime+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Ext.swift"; sourceTree = "<group>"; };
 		AD8A79802206E26C00B0989F /* DownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadError.swift; sourceTree = "<group>"; };
+		AD8A7985220725E900B0989F /* DiskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskManager.swift; sourceTree = "<group>"; };
 		ADAB26FD220352960080A411 /* VideoNetPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoNetPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAB2700220352960080A411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADAB2707220352970080A411 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 			path = AVPlayer;
 			sourceTree = "<group>";
 		};
+		AD8A7984220725C900B0989F /* Disk */ = {
+			isa = PBXGroup;
+			children = (
+				AD8A7985220725E900B0989F /* DiskManager.swift */,
+			);
+			path = Disk;
+			sourceTree = "<group>";
+		};
 		ADAB26F4220352950080A411 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +137,7 @@
 		ADAB26FF220352960080A411 /* VideoNetPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				AD8A7984220725C900B0989F /* Disk */,
 				ADAB2700220352960080A411 /* AppDelegate.swift */,
 				ADAB270C220352970080A411 /* Info.plist */,
 				ADAB2707220352970080A411 /* Assets.xcassets */,
@@ -280,6 +291,7 @@
 				ADAB271822035B2F0080A411 /* VideoPlayerVM.swift in Sources */,
 				AD8A79762204B8B300B0989F /* String+Ext.swift in Sources */,
 				ADAB2714220357900080A411 /* VideoPlayerVC.swift in Sources */,
+				AD8A7986220725E900B0989F /* DiskManager.swift in Sources */,
 				AD8A797E22060C5A00B0989F /* CMTime+Ext.swift in Sources */,
 				AD8A797B220556C700B0989F /* AVPlayerController.swift in Sources */,
 			);

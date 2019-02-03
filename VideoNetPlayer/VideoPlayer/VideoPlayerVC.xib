@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -23,40 +23,45 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video URL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOE-IY-GbQ">
-                    <rect key="frame" x="20" y="274.5" width="335" height="17"/>
+                    <rect key="frame" x="20" y="276.5" width="374" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="http://..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edu-jy-4uN">
-                    <rect key="frame" x="20" y="299.5" width="335" height="30"/>
+                    <rect key="frame" x="20" y="301.5" width="374" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwl-pJ-3mf">
-                    <rect key="frame" x="20" y="345.5" width="335" height="30"/>
+                    <rect key="frame" x="20" y="347.5" width="374" height="30"/>
                     <state key="normal" title="Download"/>
                 </button>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UqV-mn-5mT">
-                    <rect key="frame" x="20" y="359.5" width="335" height="2"/>
+                    <rect key="frame" x="20" y="361.5" width="374" height="2"/>
                 </progressView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swv-dh-F5T">
-                    <rect key="frame" x="20" y="383.5" width="335" height="30"/>
+                    <rect key="frame" x="20" y="385.5" width="374" height="30"/>
                     <state key="normal" title="Cancel">
                         <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JS4-jo-QIW">
-                    <rect key="frame" x="20" y="70" width="335" height="188.5"/>
+                    <rect key="frame" x="20" y="50" width="374" height="210.5"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="JS4-jo-QIW" secondAttribute="height" multiplier="16:9" id="88L-AE-3rw"/>
                     </constraints>
+                    <variation key="heightClass=compact">
+                        <mask key="constraints">
+                            <exclude reference="88L-AE-3rw"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,23 +69,43 @@
                 <constraint firstItem="edu-jy-4uN" firstAttribute="top" secondItem="AOE-IY-GbQ" secondAttribute="bottom" constant="8" id="2u1-4g-IbD"/>
                 <constraint firstItem="AOE-IY-GbQ" firstAttribute="top" secondItem="JS4-jo-QIW" secondAttribute="bottom" constant="16" id="7Y7-HB-DDC"/>
                 <constraint firstItem="gwl-pJ-3mf" firstAttribute="top" secondItem="edu-jy-4uN" secondAttribute="bottom" constant="16" id="DRh-xo-0am"/>
-                <constraint firstItem="JS4-jo-QIW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Hv7-AI-Etz"/>
+                <constraint firstItem="JS4-jo-QIW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Hv7-AI-Etz">
+                    <variation key="heightClass=compact" constant="0.0"/>
+                </constraint>
                 <constraint firstItem="AOE-IY-GbQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="M3Z-Cn-IfG"/>
                 <constraint firstItem="UqV-mn-5mT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="O0n-9v-SQ6"/>
-                <constraint firstItem="JS4-jo-QIW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="S17-cI-eTc"/>
+                <constraint firstItem="JS4-jo-QIW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="S17-cI-eTc">
+                    <variation key="heightClass=compact" constant="0.0"/>
+                </constraint>
                 <constraint firstItem="Swv-dh-F5T" firstAttribute="top" secondItem="gwl-pJ-3mf" secondAttribute="bottom" constant="8" id="WQS-r2-syg"/>
                 <constraint firstItem="gwl-pJ-3mf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="XTA-of-VKe"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Swv-dh-F5T" secondAttribute="trailing" constant="20" id="Ypc-Jh-Ncz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AOE-IY-GbQ" secondAttribute="trailing" constant="20" id="ZDH-ea-nfa"/>
+                <constraint firstItem="JS4-jo-QIW" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" constant="21" id="Zix-oT-0ao">
+                    <variation key="heightClass=compact" constant="0.0"/>
+                </constraint>
                 <constraint firstItem="edu-jy-4uN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="aNk-eQ-hFx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="edu-jy-4uN" secondAttribute="trailing" constant="20" id="dvY-Fo-Sic"/>
                 <constraint firstAttribute="trailing" secondItem="UqV-mn-5mT" secondAttribute="trailing" constant="20" id="fZa-g1-RJg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gwl-pJ-3mf" secondAttribute="trailing" constant="20" id="ikh-05-eTW"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JS4-jo-QIW" secondAttribute="trailing" constant="20" id="pfR-Fn-AJi"/>
+                <constraint firstAttribute="trailing" secondItem="JS4-jo-QIW" secondAttribute="trailing" constant="20" id="pfR-Fn-AJi">
+                    <variation key="heightClass=compact" constant="0.0"/>
+                </constraint>
                 <constraint firstItem="UqV-mn-5mT" firstAttribute="centerY" secondItem="gwl-pJ-3mf" secondAttribute="centerY" id="uPc-PA-6tS"/>
                 <constraint firstItem="Swv-dh-F5T" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="uqE-Du-a88"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Zix-oT-0ao"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=compact">
+                <mask key="constraints">
+                    <include reference="Zix-oT-0ao"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="138.61607142857142" y="139.13043478260872"/>
         </view>
     </objects>
 </document>

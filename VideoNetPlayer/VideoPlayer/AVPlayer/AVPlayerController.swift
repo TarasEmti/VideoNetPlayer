@@ -35,6 +35,7 @@ class AVPlayerController: UIViewController {
         videoLengthLabel.layer.cornerRadius = 5
         playPauseButton.tintColor = .red
         videoSlider.isUserInteractionEnabled = false
+        videoSlider.maximumTrackTintColor = .white
         setupPlayerLayer()
         bind()
     }

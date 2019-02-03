@@ -17,15 +17,9 @@ extension CMTime {
         var time = ""
         if hours > 0 {
             time = "\(hours):"
-            if minutes < 10 {
-                time.append("0")
-            }
         }
-        time.append("\(minutes):")
-        if seconds < 10 {
-            time.append("0")
-        }
-        time.append("\(seconds)")
+        time.append(String(format:"%02d:", minutes))
+        time.append(String(format:"%02d", seconds))
         return time
     }
 }

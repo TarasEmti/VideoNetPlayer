@@ -28,6 +28,7 @@ class VideoPlayerVC: UIViewController {
         super.viewDidLoad()
         addChild(videoPlayer)
         videoPlayerView.addSubview(videoPlayer.view)
+        navigationController?.hidesBarsWhenVerticallyCompact = true
 
         navBarSetup()
         urlTextFieldSetup()

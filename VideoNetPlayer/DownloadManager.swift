@@ -9,10 +9,11 @@
 import Foundation
 import RxSwift
 
-class DownloadManager: NSObject {
+final class DownloadManager: NSObject {
     static let shared = DownloadManager()
     
     private var session: URLSession!
+    private var task: URLSessionDataTask?
     fileprivate var dataRecieved = Data()
     fileprivate var expectedData: Float = 0
     
@@ -27,28 +28,32 @@ class DownloadManager: NSObject {
     func downloadData(from url: URL) -> Observable<Data> {
         return Observable.create({ [weak self] (observer) -> Disposable in
             guard let this = self else {
-                fatalError("Download manager does not exist")
+                return Disposables.create()
             }
             this.isBusy.value = true
             let task = this.session.dataTask(with: url) { (data, response, error) in
-                print(response)
                 this.isBusy.value = false
-                if let error = error {
+                if let error = error, error.localizedDescription != "cancelled" {
                     observer.onError(DownloadError(code: -1, message: error.localizedDescription))
                 } else if let data = data {
                     observer.onNext(data)
                 }
             }
+            this.task = task
             task.resume()
             return Disposables.create {
                 task.cancel()
             }
         })
     }
-}
-
-extension DownloadManager: URLSessionDelegate, URLSessionTaskDelegate {
     
+    func cancelTask() {
+        if let task = task {
+            print("Task cancel by User")
+            task.cancel()
+            self.task = nil
+        }
+    }
 }
 
 extension DownloadManager: URLSessionDataDelegate {

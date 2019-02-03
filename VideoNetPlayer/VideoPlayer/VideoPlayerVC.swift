@@ -16,6 +16,7 @@ class VideoPlayerVC: UIViewController {
     @IBOutlet weak private var urlTextField: UITextField!
     @IBOutlet weak private var videoPlayerView: UIView!
     @IBOutlet weak private var downloadButton: UIButton!
+    @IBOutlet weak private var cancelButton: UIButton!
     @IBOutlet weak private var progressBar: UIProgressView!
     
     private let videoPlayer = AVPlayerController()
@@ -50,13 +51,13 @@ class VideoPlayerVC: UIViewController {
         downloadButton.setTitle(viewModel.downloadButtonText, for: .normal)
         linkTitleLabel.text = viewModel.linkLabelText
         
-        _ = urlTextField.rx.text
+        urlTextField.rx.text
             .orEmpty
             .map { $0.isValidURL() }
             .bind(to: downloadButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        _ = downloadButton.rx.tap.subscribe(onNext: { [weak self] _ in
+        downloadButton.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let this = self,
              let url = URL(string: this.urlTextField.text ?? "") else {
                 return
@@ -84,15 +85,32 @@ class VideoPlayerVC: UIViewController {
                 }).disposed(by: this.disposeBag)
         }).disposed(by: disposeBag)
         
-        _ = DownloadManager.shared.isBusy.asObservable()
+        DownloadManager.shared.isBusy.asObservable()
             .map { !$0 }
             .observeOn(MainScheduler.asyncInstance)
             .bind(to: progressBar.rx.isHidden)
             .disposed(by: disposeBag)
 
-        _ = DownloadManager.shared.downloadProgress.asObservable()
+        DownloadManager.shared.downloadProgress.asObservable()
             .observeOn(MainScheduler.asyncInstance)
             .bind(to: progressBar.rx.progress)
+            .disposed(by: disposeBag)
+        
+        DownloadManager.shared.isBusy.asObservable()
+            .map { !$0 }
+            .observeOn(MainScheduler.asyncInstance)
+            .bind(to: cancelButton.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        DownloadManager.shared.isBusy.asObservable()
+            .observeOn(MainScheduler.asyncInstance)
+            .bind(to: downloadButton.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        cancelButton.rx.tap
+            .subscribe(onNext: { _ in
+                DownloadManager.shared.cancelTask()
+            })
             .disposed(by: disposeBag)
         
         let file = FileManager.default.temporaryDirectory.appendingPathComponent("tempVideo-2019-02-02_23-39-35.mp4")

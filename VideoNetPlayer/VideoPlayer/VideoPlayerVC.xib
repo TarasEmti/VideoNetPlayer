@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoPlayerVC" customModule="VideoNetPlayer" customModuleProvider="target">
             <connections>
+                <outlet property="cancelButton" destination="Swv-dh-F5T" id="igI-Yt-opM"/>
                 <outlet property="downloadButton" destination="gwl-pJ-3mf" id="wrW-Pp-cwD"/>
                 <outlet property="linkTitleLabel" destination="AOE-IY-GbQ" id="iaA-ZL-P4V"/>
                 <outlet property="progressBar" destination="UqV-mn-5mT" id="oKg-04-xYT"/>
@@ -51,6 +52,12 @@
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UqV-mn-5mT">
                     <rect key="frame" x="20" y="363.5" width="335" height="2"/>
                 </progressView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swv-dh-F5T">
+                    <rect key="frame" x="20" y="411.5" width="335" height="30"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -60,7 +67,9 @@
                 <constraint firstItem="JS4-jo-QIW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Hv7-AI-Etz"/>
                 <constraint firstItem="AOE-IY-GbQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="M3Z-Cn-IfG"/>
                 <constraint firstItem="UqV-mn-5mT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="O0n-9v-SQ6"/>
+                <constraint firstItem="Swv-dh-F5T" firstAttribute="top" secondItem="gwl-pJ-3mf" secondAttribute="bottom" constant="8" id="WQS-r2-syg"/>
                 <constraint firstItem="gwl-pJ-3mf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="XTA-of-VKe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Swv-dh-F5T" secondAttribute="trailing" constant="20" id="Ypc-Jh-Ncz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AOE-IY-GbQ" secondAttribute="trailing" constant="20" id="ZDH-ea-nfa"/>
                 <constraint firstItem="edu-jy-4uN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="aNk-eQ-hFx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="edu-jy-4uN" secondAttribute="trailing" constant="20" id="dvY-Fo-Sic"/>
@@ -69,6 +78,7 @@
                 <constraint firstItem="UqV-mn-5mT" firstAttribute="top" secondItem="JS4-jo-QIW" secondAttribute="bottom" id="mNX-z0-cE1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JS4-jo-QIW" secondAttribute="trailing" constant="20" id="pfR-Fn-AJi"/>
                 <constraint firstItem="AOE-IY-GbQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="tse-vR-62d"/>
+                <constraint firstItem="Swv-dh-F5T" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="uqE-Du-a88"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>

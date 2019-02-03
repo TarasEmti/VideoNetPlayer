@@ -29,6 +29,7 @@ class AVPlayerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hudViewLayer.alpha = 0
+        videoTitleLabel.text = ""
         currentPlayerTimeLabel.text = "--:--"
         currentPlayerTimeLabel.layer.cornerRadius = 5
         videoLengthLabel.text = "--:--"
@@ -60,7 +61,10 @@ class AVPlayerController: UIViewController {
     private func bind() {
         let gr = UITapGestureRecognizer(target: view, action: nil)
         gr.rx.event.asObservable().subscribe(onNext: { [weak self] (_) in
-            guard let this = self else { return }
+            guard let this = self,
+                this.playerLayer.player?.currentItem != nil else {
+                return 
+            }
             let oldValue = this.isHudShown.value
             this.isHudShown.accept(!oldValue)
         }).disposed(by: disposeBag)

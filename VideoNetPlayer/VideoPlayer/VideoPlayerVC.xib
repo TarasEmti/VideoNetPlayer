@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -23,36 +23,36 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video URL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOE-IY-GbQ">
-                    <rect key="frame" x="20" y="316.5" width="374" height="17"/>
+                    <rect key="frame" x="20" y="310.33333333333331" width="335" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="http://..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edu-jy-4uN">
-                    <rect key="frame" x="20" y="341.5" width="374" height="30"/>
+                    <rect key="frame" x="20" y="335.33333333333331" width="335" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwl-pJ-3mf">
-                    <rect key="frame" x="20" y="387.5" width="374" height="30"/>
+                    <rect key="frame" x="20" y="373.33333333333331" width="335" height="30"/>
                     <state key="normal" title="Download"/>
                 </button>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UqV-mn-5mT">
-                    <rect key="frame" x="20" y="401.5" width="374" height="2"/>
+                    <rect key="frame" x="20" y="387.33333333333331" width="335" height="2"/>
                 </progressView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swv-dh-F5T">
-                    <rect key="frame" x="20" y="425.5" width="374" height="30"/>
+                    <rect key="frame" x="20" y="411.33333333333331" width="335" height="30"/>
                     <state key="normal" title="Cancel">
                         <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JS4-jo-QIW">
-                    <rect key="frame" x="20" y="90" width="374" height="210.5"/>
+                    <rect key="frame" x="20" y="90.000000000000014" width="335" height="188.33333333333337"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="JS4-jo-QIW" secondAttribute="height" multiplier="16:9" id="88L-AE-3rw"/>
@@ -67,8 +67,8 @@
             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="edu-jy-4uN" firstAttribute="top" secondItem="AOE-IY-GbQ" secondAttribute="bottom" constant="8" id="2u1-4g-IbD"/>
-                <constraint firstItem="AOE-IY-GbQ" firstAttribute="top" secondItem="JS4-jo-QIW" secondAttribute="bottom" constant="16" id="7Y7-HB-DDC"/>
-                <constraint firstItem="gwl-pJ-3mf" firstAttribute="top" secondItem="edu-jy-4uN" secondAttribute="bottom" constant="16" id="DRh-xo-0am"/>
+                <constraint firstItem="AOE-IY-GbQ" firstAttribute="top" secondItem="JS4-jo-QIW" secondAttribute="bottom" constant="32" id="7Y7-HB-DDC"/>
+                <constraint firstItem="gwl-pJ-3mf" firstAttribute="top" secondItem="edu-jy-4uN" secondAttribute="bottom" constant="8" id="DRh-xo-0am"/>
                 <constraint firstItem="JS4-jo-QIW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Hv7-AI-Etz">
                     <variation key="heightClass=compact" constant="0.0"/>
                 </constraint>

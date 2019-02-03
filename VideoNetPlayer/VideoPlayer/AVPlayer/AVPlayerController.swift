@@ -53,7 +53,7 @@ class AVPlayerController: UIViewController {
         playerLayer.player = player
     }
     
-    override func viewWillLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         playerLayer.frame = view.frame
     }
     

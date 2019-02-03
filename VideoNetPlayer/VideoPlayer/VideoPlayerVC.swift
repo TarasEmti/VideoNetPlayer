@@ -49,6 +49,7 @@ class VideoPlayerVC: UIViewController {
     private func bind() {
         urlTextField.text = viewModel.videoLink
         downloadButton.setTitle(viewModel.downloadButtonText, for: .normal)
+        cancelButton.setTitle(viewModel.cancelDownloadButtonText, for: .normal)
         linkTitleLabel.text = viewModel.linkLabelText
         
         urlTextField.rx.text

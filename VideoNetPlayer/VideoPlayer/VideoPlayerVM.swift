@@ -6,8 +6,6 @@
 //  Copyright © 2019 Тарас Минин. All rights reserved.
 //
 
-import RxSwift
-
 class VideoPlayerVM {
     let downloadButtonText = "Download"
     let cancelDownloadButtonText = "Cancel"

@@ -46,12 +46,15 @@ class AVPlayerController: UIViewController {
     private func setupPlayerLayer() {
         view.layer.addSublayer(playerLayer)
         playerLayer.zPosition = -1
-        playerLayer.frame = view.frame
         playerLayer.videoGravity = .resizeAspectFill
         view.clipsToBounds = true
         let player = AVPlayer()
         player.preventsDisplaySleepDuringVideoPlayback = true
         playerLayer.player = player
+    }
+    
+    override func viewWillLayoutSubviews() {
+        playerLayer.frame = view.frame
     }
     
     private func bind() {

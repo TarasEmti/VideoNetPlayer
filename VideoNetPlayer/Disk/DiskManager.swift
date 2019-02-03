@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class DiskManager {
     
@@ -50,6 +51,15 @@ class DiskManager {
             return videoPath
         } else {
             return nil
+        }
+    }
+    
+    func deleteFile(at url: URL) {
+        do {
+            try FileManager.default.removeItem(at: url)
+        } catch {
+            UIAlertController.show(title: "Error".localized,
+                                   message: error.localizedDescription)
         }
     }
 }

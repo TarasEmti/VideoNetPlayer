@@ -18,6 +18,7 @@ class VideoPlayerVC: UIViewController {
     @IBOutlet weak private var downloadButton: UIButton!
     @IBOutlet weak private var cancelButton: UIButton!
     @IBOutlet weak private var progressBar: UIProgressView!
+    @IBOutlet weak var progressLabel: UILabel!
     
     private let videoPlayer = AVPlayerController()
     
@@ -95,7 +96,15 @@ class VideoPlayerVC: UIViewController {
 
         DownloadManager.shared.downloadProgress.asObservable()
             .observeOn(MainScheduler.asyncInstance)
-            .bind(to: progressBar.rx.progress)
+            .subscribe(onNext: { [weak self] (progress) in
+                self?.progressBar.progress = progress
+                self?.progressLabel.text = String(format: "%@%", progress*100)
+            }).disposed(by: disposeBag)
+        
+        DownloadManager.shared.isBusy.asObservable()
+            .map { !$0 }
+            .observeOn(MainScheduler.asyncInstance)
+            .bind(to: progressLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
         DownloadManager.shared.isBusy.asObservable()

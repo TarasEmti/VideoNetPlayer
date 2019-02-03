@@ -16,6 +16,7 @@
                 <outlet property="downloadButton" destination="gwl-pJ-3mf" id="wrW-Pp-cwD"/>
                 <outlet property="linkTitleLabel" destination="AOE-IY-GbQ" id="iaA-ZL-P4V"/>
                 <outlet property="progressBar" destination="UqV-mn-5mT" id="oKg-04-xYT"/>
+                <outlet property="progressLabel" destination="Vkr-ST-0WH" id="OAK-Jv-sjL"/>
                 <outlet property="urlTextField" destination="edu-jy-4uN" id="UQx-bB-VLc"/>
                 <outlet property="videoPlayerView" destination="JS4-jo-QIW" id="6Bs-N5-24L"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -72,11 +73,18 @@
                         <action selector="videoFormatInfo:" destination="-1" eventType="touchUpInside" id="sSJ-Rn-WkU"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkr-ST-0WH">
+                    <rect key="frame" x="172" y="364.33333333333331" width="31" height="14.333333333333314"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="edu-jy-4uN" firstAttribute="top" secondItem="AOE-IY-GbQ" secondAttribute="bottom" constant="8" id="2u1-4g-IbD"/>
                 <constraint firstItem="AOE-IY-GbQ" firstAttribute="top" secondItem="JS4-jo-QIW" secondAttribute="bottom" constant="32" id="7Y7-HB-DDC"/>
+                <constraint firstItem="Vkr-ST-0WH" firstAttribute="top" secondItem="UqV-mn-5mT" secondAttribute="top" constant="3" id="CNp-1x-q2Q"/>
                 <constraint firstItem="JS4-jo-QIW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Csk-S4-28u"/>
                 <constraint firstItem="gwl-pJ-3mf" firstAttribute="top" secondItem="edu-jy-4uN" secondAttribute="bottom" constant="8" id="DRh-xo-0am"/>
                 <constraint firstItem="JS4-jo-QIW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Hv7-AI-Etz">
@@ -99,6 +107,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="edu-jy-4uN" secondAttribute="trailing" constant="20" id="dvY-Fo-Sic"/>
                 <constraint firstItem="0fU-qa-jc3" firstAttribute="leading" secondItem="AOE-IY-GbQ" secondAttribute="trailing" constant="8" id="eVE-EQ-O5s"/>
                 <constraint firstAttribute="trailing" secondItem="UqV-mn-5mT" secondAttribute="trailing" constant="20" id="fZa-g1-RJg"/>
+                <constraint firstItem="Vkr-ST-0WH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fi7-rv-EaT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gwl-pJ-3mf" secondAttribute="trailing" constant="20" id="ikh-05-eTW"/>
                 <constraint firstAttribute="trailing" secondItem="JS4-jo-QIW" secondAttribute="trailing" constant="20" id="pfR-Fn-AJi">
                     <variation key="heightClass=compact" constant="0.0"/>

@@ -15,3 +15,4 @@
 "Enter video URL:" = "Введите URL видео:";
 "videoSupportMessage" = "Поддерживаемые форматы видео:\n";
 "Warning" = "Внимание";
+"Bad video format" = "Видео не может быть воспроизведено. Файл удалён.";

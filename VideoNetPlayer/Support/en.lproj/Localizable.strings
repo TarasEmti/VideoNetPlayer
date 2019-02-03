@@ -15,3 +15,4 @@
 "Enter video URL:" = "Enter video URL:";
 "videoSupportMessage" = "Video supported formats:\n";
 "Warning" = "Warning";
+"Bad video format" = "Video could not play. File deleted.";

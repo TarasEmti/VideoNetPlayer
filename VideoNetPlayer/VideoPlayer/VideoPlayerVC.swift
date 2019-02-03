@@ -21,7 +21,7 @@ class VideoPlayerVC: UIViewController {
     private let videoPlayer = AVPlayerController()
     
     private let disposeBag = DisposeBag()
-    let viewModel = VideoPlayerVM(videoLink: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4")
+    let viewModel = VideoPlayerVM(videoLink: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +57,6 @@ class VideoPlayerVC: UIViewController {
             .disposed(by: disposeBag)
         
         _ = downloadButton.rx.tap.subscribe(onNext: { [weak self] _ in
-            print("tap")
             guard let this = self,
              let url = URL(string: this.urlTextField.text ?? "") else {
                 return
@@ -71,6 +70,7 @@ class VideoPlayerVC: UIViewController {
                         let videoName = String(format: "tempVideo-%@.%@", df.string(from: Date()),url.pathExtension)
                         let temp = FileManager.default.temporaryDirectory.appendingPathComponent(videoName)
                         try data.write(to: temp)
+                        print("New video at: \(temp)")
                         this.videoPlayer.loadVideo(url: temp)
                     } catch {
                         print(error)
@@ -94,6 +94,9 @@ class VideoPlayerVC: UIViewController {
             .observeOn(MainScheduler.asyncInstance)
             .bind(to: progressBar.rx.progress)
             .disposed(by: disposeBag)
+        
+        let file = FileManager.default.temporaryDirectory.appendingPathComponent("tempVideo-2019-02-02_23-39-35.mp4")
+        videoPlayer.loadVideo(url: file)
     }
 }
 

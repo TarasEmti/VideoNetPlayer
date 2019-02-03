@@ -12,8 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AVPlayerController" customModule="VideoNetPlayer" customModuleProvider="target">
             <connections>
+                <outlet property="currentPlayerTimeLabel" destination="Dbi-AG-cb9" id="5iy-h9-A2V"/>
                 <outlet property="hudViewLayer" destination="SZY-EE-mT9" id="6qH-yt-amA"/>
                 <outlet property="playPauseButton" destination="w5V-X5-Kxb" id="L8c-4h-vzE"/>
+                <outlet property="videoLengthLabel" destination="7Ad-Zj-Xnk" id="fuH-N4-VUy"/>
                 <outlet property="videoSlider" destination="MiX-S1-fmb" id="UT4-8V-4mE"/>
                 <outlet property="videoTitleLabel" destination="38U-Pf-Wbu" id="CJn-9U-OQ4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -28,8 +30,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="482" height="273"/>
                     <subviews>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MiX-S1-fmb">
-                            <rect key="frame" x="6" y="235" width="470" height="31"/>
+                            <rect key="frame" x="64" y="235" width="354" height="31"/>
                             <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="sliderMoved:" destination="-1" eventType="valueChanged" id="lS8-tX-Aqt"/>
+                            </connections>
                         </slider>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5V-X5-Kxb">
                             <rect key="frame" x="207" y="102.5" width="68" height="68"/>
@@ -41,22 +46,48 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38U-Pf-Wbu">
                             <rect key="frame" x="0.0" y="0.0" width="482" height="34"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20173373287671234" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbi-AG-cb9">
+                            <rect key="frame" x="8" y="239" width="50" height="22"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20173373289999999" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="70m-d9-z1a"/>
+                                <constraint firstAttribute="height" constant="22" id="xbQ-UG-RdZ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ad-Zj-Xnk">
+                            <rect key="frame" x="424" y="239" width="50" height="22"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20173373287671234" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="4ux-rb-Xwv"/>
+                                <constraint firstAttribute="height" constant="22" id="UyV-dN-mbH"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="7Ad-Zj-Xnk" firstAttribute="leading" secondItem="MiX-S1-fmb" secondAttribute="trailing" constant="8" id="00T-Pc-AX2"/>
                         <constraint firstItem="w5V-X5-Kxb" firstAttribute="centerY" secondItem="SZY-EE-mT9" secondAttribute="centerY" id="4c6-0X-FOg"/>
-                        <constraint firstAttribute="trailing" secondItem="MiX-S1-fmb" secondAttribute="trailing" constant="8" id="98K-7p-9g2"/>
+                        <constraint firstAttribute="trailing" secondItem="7Ad-Zj-Xnk" secondAttribute="trailing" constant="8" id="9yV-1p-YRn"/>
                         <constraint firstItem="38U-Pf-Wbu" firstAttribute="top" secondItem="SZY-EE-mT9" secondAttribute="top" id="DCx-5C-SGb"/>
                         <constraint firstItem="38U-Pf-Wbu" firstAttribute="height" secondItem="SZY-EE-mT9" secondAttribute="height" multiplier="1:8" id="H7u-jI-4tb"/>
+                        <constraint firstItem="7Ad-Zj-Xnk" firstAttribute="centerY" secondItem="MiX-S1-fmb" secondAttribute="centerY" id="Kt5-2r-Yma"/>
                         <constraint firstItem="w5V-X5-Kxb" firstAttribute="centerX" secondItem="SZY-EE-mT9" secondAttribute="centerX" id="Vg5-zr-zLk"/>
+                        <constraint firstItem="MiX-S1-fmb" firstAttribute="centerY" secondItem="Dbi-AG-cb9" secondAttribute="centerY" id="WCh-2r-jZq"/>
                         <constraint firstItem="38U-Pf-Wbu" firstAttribute="leading" secondItem="SZY-EE-mT9" secondAttribute="leading" id="YGc-YQ-rF9"/>
                         <constraint firstAttribute="bottom" secondItem="MiX-S1-fmb" secondAttribute="bottom" constant="8" id="b4d-VE-ZVS"/>
-                        <constraint firstItem="MiX-S1-fmb" firstAttribute="leading" secondItem="SZY-EE-mT9" secondAttribute="leading" constant="8" id="hmM-Gs-1eZ"/>
                         <constraint firstAttribute="trailing" secondItem="38U-Pf-Wbu" secondAttribute="trailing" id="is3-KE-IBB"/>
+                        <constraint firstItem="Dbi-AG-cb9" firstAttribute="leading" secondItem="SZY-EE-mT9" secondAttribute="leading" constant="8" id="kqd-bj-tMk"/>
+                        <constraint firstItem="MiX-S1-fmb" firstAttribute="leading" secondItem="Dbi-AG-cb9" secondAttribute="trailing" constant="8" id="vlt-a1-dMv"/>
                         <constraint firstItem="w5V-X5-Kxb" firstAttribute="height" secondItem="SZY-EE-mT9" secondAttribute="height" multiplier="1:4" id="x4V-6N-aAN"/>
                     </constraints>
                 </view>

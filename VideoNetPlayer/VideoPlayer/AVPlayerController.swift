@@ -39,6 +39,10 @@ class AVPlayerController: UIViewController {
         bind()
     }
     
+    deinit {
+        releasePeriodicTimeObserver()
+    }
+    
     private func setupPlayerLayer() {
         view.layer.addSublayer(playerLayer)
         playerLayer.zPosition = -1
@@ -119,6 +123,8 @@ class AVPlayerController: UIViewController {
     }
     
     func releasePeriodicTimeObserver() {
-        
+        if let observer = observerToken {
+            playerLayer.player?.removeTimeObserver(observer)
+        }
     }
 }

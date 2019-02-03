@@ -13,10 +13,9 @@ final class DownloadManager: NSObject {
     static let shared = DownloadManager()
     
     private var session: URLSession!
-    private var task: URLSessionDataTask?
-    fileprivate var dataRecieved = Data()
-    fileprivate var expectedData: Float = 0
+    private var task: URLSessionDownloadTask?
     
+    var observer: AnyObserver<Data>?
     let isBusy = Variable(false)
     let downloadProgress: Variable<Float> = Variable(0)
     
@@ -31,17 +30,10 @@ final class DownloadManager: NSObject {
                 return Disposables.create()
             }
             this.isBusy.value = true
-            let task = this.session.dataTask(with: url) { (data, response, error) in
-                this.isBusy.value = false
-                if let error = error, error.localizedDescription != "cancelled" {
-                    observer.onError(DownloadError(code: -1, message: error.localizedDescription))
-                } else if let data = data {
-                    observer.onNext(data)
-                    observer.onCompleted()
-                }
-            }
+            let task = this.session.downloadTask(with: url)
             this.task = task
             task.resume()
+            this.observer = observer
             return Disposables.create {
                 task.cancel()
             }
@@ -52,26 +44,43 @@ final class DownloadManager: NSObject {
         if let task = task {
             print("Task cancel by User")
             task.cancel()
-            self.task = nil
+            downloadComplete()
         }
+    }
+    
+    fileprivate func downloadComplete() {
+        self.task = nil
+        isBusy.value = false
+        downloadProgress.value = 0
+        observer?.onCompleted()
+        observer = nil
     }
 }
 
-extension DownloadManager: URLSessionDataDelegate {
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
-        expectedData = Float(response.expectedContentLength)
-        dataRecieved = Data()
+extension DownloadManager: URLSessionDownloadDelegate {
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        if let data = try? Data.init(contentsOf: location) {
+            observer?.onNext(data)
+        }
+        downloadComplete()
     }
     
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        dataRecieved.append(data)
-        let progress = Float(dataRecieved.count) / expectedData
-        print(progress)
-        downloadProgress.value = progress
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        downloadProgress.value = (Float(totalBytesWritten)/Float(totalBytesExpectedToWrite))
+    }
+}
+
+extension DownloadManager: URLSessionTaskDelegate {
+    func urlSession(_ session: URLSession, taskIsWaitingForConnectivity task: URLSessionTask) {
+        print("waiting")
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        print("OK")
+        print("ERROR")
+        if let error = error {
+            observer?.onError(DownloadError(code: -2, message: error.localizedDescription))
+            downloadComplete()
+        }
     }
 }
 

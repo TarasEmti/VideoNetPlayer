@@ -29,14 +29,8 @@ class VideoPlayerVC: UIViewController {
         addChild(videoPlayer)
         videoPlayerView.addSubview(videoPlayer.view)
         videoPlayer.view.frame = videoPlayerView.bounds
-        progressBarSetup()
         urlTextFieldSetup()
         bind()
-    }
-    
-    private func progressBarSetup() {
-        progressBar.setProgress(0, animated: false)
-        progressBar.progressTintColor = .red
     }
     
     private func urlTextFieldSetup() {

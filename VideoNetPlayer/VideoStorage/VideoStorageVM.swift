@@ -12,7 +12,7 @@ import RxCocoa
 class VideoStorageVM {
     
     let chosenItem: BehaviorRelay<URL?> = BehaviorRelay(value: nil)
-    private let videoFiles: [URL]
+    private var videoFiles: [URL]
     
     init() {
         let files: [URL]
@@ -45,5 +45,11 @@ class VideoStorageVM {
     func onSelect(at: IndexPath) {
         let video = videoFiles[at.row]
         chosenItem.accept(video)
+    }
+    
+    func remove(at: IndexPath) {
+        let file = videoFiles[at.row]
+        DiskManager.shared.deleteFile(at: file)
+        videoFiles.remove(at: at.row)
     }
 }

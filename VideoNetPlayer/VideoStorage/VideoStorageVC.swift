@@ -40,6 +40,16 @@ extension VideoStorageVC: UITableViewDataSource {
         cell?.textLabel?.text = viewModel.titleForCell(at: indexPath)
         return cell ?? UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            viewModel.remove(at: indexPath)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        default:
+            break
+        }
+    }
 }
 
 extension VideoStorageVC: UITableViewDelegate {

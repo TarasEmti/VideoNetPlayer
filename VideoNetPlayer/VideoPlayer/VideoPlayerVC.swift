@@ -67,7 +67,7 @@ class VideoPlayerVC: UIViewController {
         
         urlTextField.rx.text
             .orEmpty
-            .map { $0.isValidURL() }
+            .map { $0.isValidVideoURL() }
             .bind(to: downloadButton.rx.isEnabled)
             .disposed(by: disposeBag)
         

@@ -18,9 +18,9 @@ extension String {
     
     func isValidVideoURL() -> Bool {
         if self.isValidURL() {
-            let videoFormatPrefix = DiskManager.shared.supportedVideo
-            for prefix in videoFormatPrefix {
-                if self.hasPrefix(prefix) {
+            let videoFormatExt = DiskManager.shared.supportedVideo
+            for ext in videoFormatExt {
+                if self.hasSuffix(".\(ext)") {
                     return true
                 }
             }

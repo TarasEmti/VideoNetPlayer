@@ -84,6 +84,9 @@ class AVPlayerController: UIViewController {
         playPauseButton.rx.tap.subscribe(onNext: { [weak self] _ in
             if let player = self?.playerLayer.player {
                 if player.rate == 0 {
+                    if player.currentTime() == player.currentItem?.duration {
+                        player.seek(to: .zero)
+                    }
                     player.play()
                     self?.isPlayerPlaying.accept(true)
                 } else {

@@ -19,7 +19,14 @@ class VideoStorageVM {
         do {
             let dirUrl = DiskManager.shared.tempVideoFolder
             let allFiles = try FileManager.default.contentsOfDirectory(at: dirUrl, includingPropertiesForKeys: [])
-            files = allFiles.filter({$0.pathExtension == "mp4"})
+            files = allFiles.filter({ file in
+                for ext in DiskManager.shared.supportedVideo {
+                    if file.pathExtension == ext {
+                        return true
+                    }
+                }
+                return false
+            })
         } catch {
             print(error)
             files = []

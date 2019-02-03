@@ -15,8 +15,21 @@ class DiskManager {
     private init() {}
     
     var tempVideoFolder: URL {
-        let url = FileManager.default.temporaryDirectory.appendingPathComponent("aloha-videos")
-        return url
+        let url = try? FileManager.default.url(for: .downloadsDirectory,
+                                               in: .userDomainMask,
+                                               appropriateFor: nil,
+                                               create: false)
+        let alohaFolder = url!.appendingPathComponent("aloha")
+        if !FileManager.default.fileExists(atPath: alohaFolder.path) {
+            do {
+            try FileManager.default.createDirectory(atPath: alohaFolder.relativePath,
+                                                     withIntermediateDirectories: true,
+                                                     attributes: nil)
+            } catch {
+                print(error)
+            }
+        }
+        return alohaFolder
     }
     let supportedVideo = ["mp4", "mov", "m4v"]
     

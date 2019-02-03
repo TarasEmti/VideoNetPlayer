@@ -27,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video URL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOE-IY-GbQ">
-                    <rect key="frame" x="20" y="310.33333333333331" width="335" height="17"/>
+                    <rect key="frame" x="20" y="310.33333333333331" width="287" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -63,6 +63,15 @@
                         </mask>
                     </variation>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fU-qa-jc3">
+                    <rect key="frame" x="315" y="308" width="40" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="XXY-dW-uFp"/>
+                    </constraints>
+                    <connections>
+                        <action selector="videoLinkInfo:" destination="-1" eventType="touchUpInside" id="QOR-Of-k0v"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -74,18 +83,20 @@
                 </constraint>
                 <constraint firstItem="AOE-IY-GbQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="M3Z-Cn-IfG"/>
                 <constraint firstItem="UqV-mn-5mT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="O0n-9v-SQ6"/>
+                <constraint firstItem="0fU-qa-jc3" firstAttribute="centerY" secondItem="AOE-IY-GbQ" secondAttribute="centerY" id="O9P-87-lI4"/>
                 <constraint firstItem="JS4-jo-QIW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="S17-cI-eTc">
                     <variation key="heightClass=compact" constant="0.0"/>
                 </constraint>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0fU-qa-jc3" secondAttribute="trailing" constant="20" id="W3R-xU-cCh"/>
                 <constraint firstItem="Swv-dh-F5T" firstAttribute="top" secondItem="gwl-pJ-3mf" secondAttribute="bottom" constant="8" id="WQS-r2-syg"/>
                 <constraint firstItem="gwl-pJ-3mf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="XTA-of-VKe"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Swv-dh-F5T" secondAttribute="trailing" constant="20" id="Ypc-Jh-Ncz"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AOE-IY-GbQ" secondAttribute="trailing" constant="20" id="ZDH-ea-nfa"/>
                 <constraint firstItem="JS4-jo-QIW" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" constant="21" id="Zix-oT-0ao">
                     <variation key="heightClass=compact" constant="0.0"/>
                 </constraint>
                 <constraint firstItem="edu-jy-4uN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="aNk-eQ-hFx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="edu-jy-4uN" secondAttribute="trailing" constant="20" id="dvY-Fo-Sic"/>
+                <constraint firstItem="0fU-qa-jc3" firstAttribute="leading" secondItem="AOE-IY-GbQ" secondAttribute="trailing" constant="8" id="eVE-EQ-O5s"/>
                 <constraint firstAttribute="trailing" secondItem="UqV-mn-5mT" secondAttribute="trailing" constant="20" id="fZa-g1-RJg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gwl-pJ-3mf" secondAttribute="trailing" constant="20" id="ikh-05-eTW"/>
                 <constraint firstAttribute="trailing" secondItem="JS4-jo-QIW" secondAttribute="trailing" constant="20" id="pfR-Fn-AJi">

@@ -98,7 +98,8 @@ class VideoPlayerVC: UIViewController {
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] (progress) in
                 self?.progressBar.progress = progress
-                self?.progressLabel.text = String(format: "%@%", progress*100)
+                let percentage = String(format: "%.2f", progress*100)
+                self?.progressLabel.text = "\(percentage)%"
             }).disposed(by: disposeBag)
         
         DownloadManager.shared.isBusy.asObservable()
@@ -125,7 +126,7 @@ class VideoPlayerVC: UIViewController {
             .disposed(by: disposeBag)
         
         #if DEBUG
-            urlTextField.text = "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_30mb.mp4"
+            urlTextField.text = "https://sample-videos.com/video123/mp4/240/big_buck_bunny_240p_30mb.mp4"
         #endif
     }
     

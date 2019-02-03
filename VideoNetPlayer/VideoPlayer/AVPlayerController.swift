@@ -21,6 +21,7 @@ class AVPlayerController: UIViewController {
     @IBOutlet weak private var videoLengthLabel: UILabel!
     
     private let playerLayer = AVPlayerLayer()
+    private var observerToken: Any?
     private let isHudShown = BehaviorRelay(value: false)
     private let isPlayerPlaying = BehaviorRelay(value: false)
     private let disposeBag = DisposeBag()
@@ -33,6 +34,7 @@ class AVPlayerController: UIViewController {
         videoLengthLabel.text = "--:--"
         videoLengthLabel.layer.cornerRadius = 5
         playPauseButton.tintColor = .red
+        videoSlider.isUserInteractionEnabled = false
         setupPlayerLayer()
         bind()
     }
@@ -41,7 +43,7 @@ class AVPlayerController: UIViewController {
         view.layer.addSublayer(playerLayer)
         playerLayer.zPosition = -1
         playerLayer.frame = view.frame
-        playerLayer.videoGravity = .resizeAspect
+        playerLayer.videoGravity = .resizeAspectFill
         view.clipsToBounds = true
         let player = AVPlayer()
         player.preventsDisplaySleepDuringVideoPlayback = true
@@ -89,16 +91,6 @@ class AVPlayerController: UIViewController {
                 self?.playPauseButton.setImage(playImage, for: .normal)
             }
         }).disposed(by: disposeBag)
-        
-
-    }
-    
-    @IBAction func sliderMoved(_ sender: Any) {
-        if let player = playerLayer.player, player.currentItem != nil {
-            let time = CMTime(seconds: Double(videoSlider.value),
-                              preferredTimescale: 900)
-            player.seek(to: time)
-        }
     }
     
     func loadVideo(url: URL) {
@@ -106,11 +98,27 @@ class AVPlayerController: UIViewController {
         if let player = playerLayer.player {
             player.replaceCurrentItem(with: item)
             player.seek(to: .zero)
+            addPeriodicTimeObserver()
             player.play()
             isPlayerPlaying.accept(true)
             videoTitleLabel.text = String(format: "\t%@", url.lastPathComponent)
             videoLengthLabel.text = item.asset.duration.toString()
             videoSlider.maximumValue = Float(item.asset.duration.seconds)
         }
+    }
+    
+    func addPeriodicTimeObserver() {
+        if let player = playerLayer.player {
+            let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+            let queue = DispatchQueue.main
+            observerToken = player.addPeriodicTimeObserver(forInterval: interval, queue: queue, using: { [weak self] (time) in
+                self?.currentPlayerTimeLabel.text = time.toString()
+                self?.videoSlider.value = Float(time.seconds)
+            })
+        }
+    }
+    
+    func releasePeriodicTimeObserver() {
+        
     }
 }

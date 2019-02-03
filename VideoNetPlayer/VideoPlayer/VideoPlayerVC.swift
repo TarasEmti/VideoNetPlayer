@@ -113,7 +113,7 @@ class VideoPlayerVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        let file = FileManager.default.temporaryDirectory.appendingPathComponent("tempVideo-2019-02-02_23-39-35.mp4")
+        let file = FileManager.default.temporaryDirectory.appendingPathComponent("tempVideo-2019-02-03_13-29-10.mp4")
         videoPlayer.loadVideo(url: file)
     }
 }

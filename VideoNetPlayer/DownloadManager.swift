@@ -37,6 +37,7 @@ final class DownloadManager: NSObject {
                     observer.onError(DownloadError(code: -1, message: error.localizedDescription))
                 } else if let data = data {
                     observer.onNext(data)
+                    observer.onCompleted()
                 }
             }
             this.task = task
@@ -67,6 +68,10 @@ extension DownloadManager: URLSessionDataDelegate {
         let progress = Float(dataRecieved.count) / expectedData
         print(progress)
         downloadProgress.value = progress
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        print("OK")
     }
 }
 

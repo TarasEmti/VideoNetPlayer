@@ -13,3 +13,5 @@
 "Download" = "Скачать";
 "Cancel" = "Отмена";
 "Enter video URL:" = "Введите URL видео:";
+"videoSupportMessage" = "Поддерживаемые форматы видео:\n";
+"Warning" = "Внимание";

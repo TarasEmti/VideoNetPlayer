@@ -13,3 +13,5 @@
 "Download" = "Download";
 "Cancel" = "Cancel";
 "Enter video URL:" = "Enter video URL:";
+"videoSupportMessage" = "Video supported formats:\n";
+"Warning" = "Warning";

@@ -93,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				ADAB2709220352970080A411 /* LaunchScreen.storyboard */,
-				ADAB270C220352970080A411 /* Info.plist */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -129,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				ADAB2700220352960080A411 /* AppDelegate.swift */,
+				ADAB270C220352970080A411 /* Info.plist */,
 				ADAB2707220352970080A411 /* Assets.xcassets */,
 				AD8A79742204B88100B0989F /* Extensions */,
 				AD8A797F2206E24700B0989F /* Network */,

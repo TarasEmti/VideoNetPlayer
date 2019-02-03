@@ -17,6 +17,8 @@
 		AD8A7986220725E900B0989F /* DiskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A7985220725E900B0989F /* DiskManager.swift */; };
 		AD8A798B22072F6300B0989F /* VideoStorageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A798A22072F6300B0989F /* VideoStorageVC.swift */; };
 		AD8A798D22072FD600B0989F /* VideoStorageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A798C22072FD600B0989F /* VideoStorageVM.swift */; };
+		AD8A799122075DF700B0989F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD8A799322075DF700B0989F /* Localizable.strings */; };
+		AD8A7996220764E900B0989F /* UIAlertController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A7995220764E900B0989F /* UIAlertController+Ext.swift */; };
 		ADAB2701220352960080A411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB2700220352960080A411 /* AppDelegate.swift */; };
 		ADAB2708220352970080A411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2707220352970080A411 /* Assets.xcassets */; };
 		ADAB270B220352970080A411 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAB2709220352970080A411 /* LaunchScreen.storyboard */; };
@@ -37,6 +39,10 @@
 		AD8A7985220725E900B0989F /* DiskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskManager.swift; sourceTree = "<group>"; };
 		AD8A798A22072F6300B0989F /* VideoStorageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStorageVC.swift; sourceTree = "<group>"; };
 		AD8A798C22072FD600B0989F /* VideoStorageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStorageVM.swift; sourceTree = "<group>"; };
+		AD8A798E22075D9A00B0989F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		AD8A799222075DF700B0989F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AD8A799422075DFB00B0989F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AD8A7995220764E900B0989F /* UIAlertController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Ext.swift"; sourceTree = "<group>"; };
 		ADAB26FD220352960080A411 /* VideoNetPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoNetPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAB2700220352960080A411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADAB2707220352970080A411 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +88,7 @@
 			children = (
 				AD8A79752204B8B300B0989F /* String+Ext.swift */,
 				AD8A797D22060C5A00B0989F /* CMTime+Ext.swift */,
+				AD8A7995220764E900B0989F /* UIAlertController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -99,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				ADAB2709220352970080A411 /* LaunchScreen.storyboard */,
+				AD8A799322075DF700B0989F /* Localizable.strings */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -218,6 +226,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = ADAB26F4220352950080A411;
 			productRefGroup = ADAB26FE220352960080A411 /* Products */;
@@ -234,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD8A799122075DF700B0989F /* Localizable.strings in Resources */,
 				ADAB270B220352970080A411 /* LaunchScreen.storyboard in Resources */,
 				ADAB2708220352970080A411 /* Assets.xcassets in Resources */,
 				ADAB2715220357900080A411 /* VideoPlayerVC.xib in Resources */,
@@ -307,6 +317,7 @@
 				ADAB271822035B2F0080A411 /* VideoPlayerVM.swift in Sources */,
 				AD8A79762204B8B300B0989F /* String+Ext.swift in Sources */,
 				ADAB2714220357900080A411 /* VideoPlayerVC.swift in Sources */,
+				AD8A7996220764E900B0989F /* UIAlertController+Ext.swift in Sources */,
 				AD8A7986220725E900B0989F /* DiskManager.swift in Sources */,
 				AD8A797E22060C5A00B0989F /* CMTime+Ext.swift in Sources */,
 				AD8A797B220556C700B0989F /* AVPlayerController.swift in Sources */,
@@ -316,10 +327,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		AD8A799322075DF700B0989F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD8A799222075DF700B0989F /* en */,
+				AD8A799422075DFB00B0989F /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		ADAB2709220352970080A411 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ADAB270A220352970080A411 /* Base */,
+				AD8A798E22075D9A00B0989F /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -331,6 +352,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -392,6 +414,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

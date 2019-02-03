@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  VideoNetPlayer
+
+  Created by Тарас Минин on 04/02/2019.
+  Copyright © 2019 Тарас Минин. All rights reserved.
+*/
+
+"Video Storage" = "Мои видео";
+"Aloha Test" = "Алоха Тест";
+"Error" = "Ошибка";
+"OK" = "OK";
+"Download" = "Скачать";
+"Cancel" = "Отмена";
+"Enter video URL:" = "Введите URL видео:";

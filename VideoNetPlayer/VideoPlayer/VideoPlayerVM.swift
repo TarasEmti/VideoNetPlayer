@@ -7,9 +7,9 @@
 //
 
 class VideoPlayerVM {
-    let downloadButtonText = "Download"
-    let cancelDownloadButtonText = "Cancel"
-    let linkLabelText = "Enter video URL:"
+    let downloadButtonText = "Download".localized
+    let cancelDownloadButtonText = "Cancel".localized
+    let linkLabelText = "Enter video URL:".localized
     let urlTextFieldPlaceholder = "http://"
     
     var videoLink: String?

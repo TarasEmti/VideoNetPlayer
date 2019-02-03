@@ -42,7 +42,6 @@ final class DownloadManager: NSObject {
     
     func cancelTask() {
         if let task = task {
-            print("Task cancel by User")
             task.cancel()
             downloadComplete()
         }
@@ -71,10 +70,6 @@ extension DownloadManager: URLSessionDownloadDelegate {
 }
 
 extension DownloadManager: URLSessionTaskDelegate {
-    func urlSession(_ session: URLSession, taskIsWaitingForConnectivity task: URLSessionTask) {
-        print("waiting")
-    }
-    
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if let error = error {
             observer?.onError(DownloadError(code: -2, message: error.localizedDescription))

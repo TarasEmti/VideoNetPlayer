@@ -40,7 +40,7 @@ class VideoPlayerVC: UIViewController {
     }
     
     private func navBarSetup() {
-        title = "Aloha"
+        title = "Aloha Test".localized
         let videoFolderItem = UIBarButtonItem(barButtonSystemItem: .organize, target: nil, action: nil)
         navigationItem.rightBarButtonItem = videoFolderItem
         videoFolderItem.rx.tap.subscribe(onNext: { [weak self] _ in
@@ -88,8 +88,8 @@ class VideoPlayerVC: UIViewController {
                     }
                 }, onError: { error in
                     let downloadError = error as? DownloadError
-                    let alert = UIAlertController(title: "Ошибка", message: downloadError?.message, preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    let alert = UIAlertController(title: "Error".localized, message: downloadError?.message, preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
                     alert.addAction(okAction)
                     this.present(alert, animated: true, completion: nil)
                 }).disposed(by: this.disposeBag)
@@ -125,6 +125,10 @@ class VideoPlayerVC: UIViewController {
         
         let file = FileManager.default.temporaryDirectory.appendingPathComponent("tempVideo-2019-02-03_13-29-10.mp4")
         videoPlayer.loadVideo(url: file)
+    }
+    
+    @IBAction func videoFormatInfo(_ sender: Any) {
+        
     }
 }
 

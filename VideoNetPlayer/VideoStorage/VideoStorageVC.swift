@@ -17,7 +17,7 @@ class VideoStorageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Video storage"
+        title = "Video Storage".localized
         tableView = UITableView()
         view.addSubview(tableView)
         tableView.delegate = self

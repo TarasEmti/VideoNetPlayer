@@ -132,7 +132,7 @@ class VideoPlayerVC: UIViewController {
     
     @IBAction func videoFormatInfo(_ sender: Any) {
         let videoSupportMessage = "videoSupportMessage".localized
-        let supportFormat = String(format: "%@%@", videoSupportMessage, DiskManager.shared.supportedVideo.joined(separator: ", "))
+        let supportFormat = String(format: "%@%@", videoSupportMessage, DiskStorage.shared.supportedVideoExtensions.joined(separator: ", "))
         UIAlertController.show(title: "Warning".localized, message: supportFormat)
     }
 }

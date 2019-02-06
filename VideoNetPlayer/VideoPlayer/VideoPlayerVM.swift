@@ -25,14 +25,14 @@ class VideoPlayerVM {
     }
     
     func uploadVideo(from url: URL) {
-        if let localUrl = DiskManager.shared.isVideoExist(downloadURL: url) {
+        if let localUrl = DiskStorage.shared.isVideoExist(downloadURL: url) {
             videoUrl.accept(localUrl)
         } else {
             DownloadManager.shared.downloadData(from: url)
                 .observeOn(MainScheduler.asyncInstance)
                 .subscribe(onNext: { [weak self] (data) in
                     do {
-                        let localUrl = try DiskManager.shared.saveVideo(data: data,
+                        let localUrl = try DiskStorage.shared.saveVideo(data: data,
                                                                         name: url.lastPathComponent)
                         self?.videoUrl.accept(localUrl)
                     } catch {

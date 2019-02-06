@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-class DiskManager {
+class DiskStorage {
     
-    static let shared = DiskManager()
+    static let shared = DiskStorage()
     
     private init() {}
     
@@ -32,7 +32,7 @@ class DiskManager {
         }
         return alohaFolder
     }
-    let supportedVideo = ["mp4", "mov", "m4v"]
+    let supportedVideoExtensions = ["mp4", "mov", "m4v"]
     
     func saveVideo(data: Data, name: String) throws -> URL {
         do {

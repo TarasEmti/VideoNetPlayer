@@ -17,10 +17,10 @@ class VideoStorageVM {
     init() {
         let files: [URL]
         do {
-            let dirUrl = DiskManager.shared.tempVideoFolder
+            let dirUrl = DiskStorage.shared.tempVideoFolder
             let allFiles = try FileManager.default.contentsOfDirectory(at: dirUrl, includingPropertiesForKeys: [])
             files = allFiles.filter({ file in
-                for ext in DiskManager.shared.supportedVideo {
+                for ext in DiskStorage.shared.supportedVideoExtensions {
                     if file.pathExtension == ext {
                         return true
                     }
@@ -49,7 +49,7 @@ class VideoStorageVM {
     
     func remove(at: IndexPath) {
         let file = videoFiles[at.row]
-        DiskManager.shared.deleteFile(at: file)
+        DiskStorage.shared.deleteFile(at: file)
         videoFiles.remove(at: at.row)
     }
 }

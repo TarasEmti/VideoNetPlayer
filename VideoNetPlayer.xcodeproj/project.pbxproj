@@ -14,7 +14,7 @@
 		AD8A797C220556C700B0989F /* AVPlayerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8A797A220556C700B0989F /* AVPlayerController.xib */; };
 		AD8A797E22060C5A00B0989F /* CMTime+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A797D22060C5A00B0989F /* CMTime+Ext.swift */; };
 		AD8A79812206E26C00B0989F /* DownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A79802206E26C00B0989F /* DownloadError.swift */; };
-		AD8A7986220725E900B0989F /* DiskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A7985220725E900B0989F /* DiskManager.swift */; };
+		AD8A7986220725E900B0989F /* DiskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A7985220725E900B0989F /* DiskStorage.swift */; };
 		AD8A798B22072F6300B0989F /* VideoStorageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A798A22072F6300B0989F /* VideoStorageVC.swift */; };
 		AD8A798D22072FD600B0989F /* VideoStorageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A798C22072FD600B0989F /* VideoStorageVM.swift */; };
 		AD8A799122075DF700B0989F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD8A799322075DF700B0989F /* Localizable.strings */; };
@@ -36,7 +36,7 @@
 		AD8A797A220556C700B0989F /* AVPlayerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AVPlayerController.xib; sourceTree = "<group>"; };
 		AD8A797D22060C5A00B0989F /* CMTime+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Ext.swift"; sourceTree = "<group>"; };
 		AD8A79802206E26C00B0989F /* DownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadError.swift; sourceTree = "<group>"; };
-		AD8A7985220725E900B0989F /* DiskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskManager.swift; sourceTree = "<group>"; };
+		AD8A7985220725E900B0989F /* DiskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskStorage.swift; sourceTree = "<group>"; };
 		AD8A798A22072F6300B0989F /* VideoStorageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStorageVC.swift; sourceTree = "<group>"; };
 		AD8A798C22072FD600B0989F /* VideoStorageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStorageVM.swift; sourceTree = "<group>"; };
 		AD8A798E22075D9A00B0989F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		AD8A7984220725C900B0989F /* Disk */ = {
 			isa = PBXGroup;
 			children = (
-				AD8A7985220725E900B0989F /* DiskManager.swift */,
+				AD8A7985220725E900B0989F /* DiskStorage.swift */,
 			);
 			path = Disk;
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 				AD8A79762204B8B300B0989F /* String+Ext.swift in Sources */,
 				ADAB2714220357900080A411 /* VideoPlayerVC.swift in Sources */,
 				AD8A7996220764E900B0989F /* UIAlertController+Ext.swift in Sources */,
-				AD8A7986220725E900B0989F /* DiskManager.swift in Sources */,
+				AD8A7986220725E900B0989F /* DiskStorage.swift in Sources */,
 				AD8A797E22060C5A00B0989F /* CMTime+Ext.swift in Sources */,
 				AD8A797B220556C700B0989F /* AVPlayerController.swift in Sources */,
 			);

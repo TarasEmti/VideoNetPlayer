@@ -27,17 +27,17 @@ class DiskStorage {
                                                      withIntermediateDirectories: true,
                                                      attributes: nil)
             } catch {
-                print(error)
+                ErrorHandler.handle(error: error)
             }
         }
         return alohaFolder
     }
-    let supportedVideoExtensions = ["mp4", "mov", "m4v"]
+    let supportedVideoExtensions: Set<String> = ["mp4", "mov", "m4v"]
     
     func saveVideo(data: Data, name: String) throws -> URL {
         do {
             let videoUrl = tempVideoFolder.appendingPathComponent(name)
-            try data.write(to: videoUrl)
+            try saveFile(at: videoUrl, fileData: data)
             print("New video at: \(videoUrl)")
             return videoUrl
         } catch {
@@ -45,7 +45,15 @@ class DiskStorage {
         }
     }
     
-    func isVideoExist(downloadURL url: URL) -> URL? {
+    func saveFile(at url: URL, fileData: Data) throws {
+        do {
+            try fileData.write(to: url)
+        } catch {
+            throw error
+        }
+    }
+    
+    func storageUrlForVideo(downloadURL url: URL) -> URL? {
         let videoPath = tempVideoFolder.appendingPathComponent(url.lastPathComponent)
         if FileManager.default.fileExists(atPath: videoPath.path) {
             return videoPath
@@ -58,8 +66,7 @@ class DiskStorage {
         do {
             try FileManager.default.removeItem(at: url)
         } catch {
-            UIAlertController.show(title: "Error".localized,
-                                   message: error.localizedDescription)
+            ErrorHandler.handle(error: error)
         }
     }
 }

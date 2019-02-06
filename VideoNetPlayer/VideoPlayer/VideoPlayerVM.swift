@@ -25,7 +25,7 @@ class VideoPlayerVM {
     }
     
     func uploadVideo(from url: URL) {
-        if let localUrl = DiskStorage.shared.isVideoExist(downloadURL: url) {
+        if let localUrl = DiskStorage.shared.storageUrlForVideo(downloadURL: url) {
             videoUrl.accept(localUrl)
         } else {
             DownloadManager.shared.downloadData(from: url)
@@ -36,13 +36,10 @@ class VideoPlayerVM {
                                                                         name: url.lastPathComponent)
                         self?.videoUrl.accept(localUrl)
                     } catch {
-                        UIAlertController.show(title: "Error".localized,
-                                               message: error.localizedDescription)
+                        ErrorHandler.handle(error: error)
                     }
                 }, onError: { error in
-                    let downloadError = error as? DownloadError
-                    UIAlertController.show(title: "Error".localized,
-                                           message: downloadError?.message ?? "")
+                    ErrorHandler.handle(error: error)
                 }).disposed(by: disposeBag)
         }
     }

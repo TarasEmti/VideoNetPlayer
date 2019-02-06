@@ -58,7 +58,7 @@ final class DownloadManager: NSObject {
 
 extension DownloadManager: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        if let data = try? Data.init(contentsOf: location) {
+        if let data = try? Data(contentsOf: location) {
             observer?.onNext(data)
         }
         downloadComplete()

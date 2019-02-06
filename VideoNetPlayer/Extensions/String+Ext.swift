@@ -18,8 +18,8 @@ extension String {
     
     func isValidVideoURL() -> Bool {
         if self.isValidURL() {
-            let videoFormatExt = DiskStorage.shared.supportedVideoExtensions
-            for ext in videoFormatExt {
+            let videoExtensions = DiskStorage.shared.supportedVideoExtensions
+            for ext in videoExtensions {
                 if self.hasSuffix(".\(ext)") {
                     return true
                 }

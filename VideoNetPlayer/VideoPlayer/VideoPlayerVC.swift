@@ -18,12 +18,12 @@ class VideoPlayerVC: UIViewController {
     @IBOutlet weak private var downloadButton: UIButton!
     @IBOutlet weak private var cancelButton: UIButton!
     @IBOutlet weak private var progressBar: UIProgressView!
-    @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak private var progressLabel: UILabel!
     
+    let viewModel = VideoPlayerVM()
     private let videoPlayer = AVPlayerController()
     
     private let disposeBag = DisposeBag()
-    let viewModel = VideoPlayerVM()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,7 +133,7 @@ class VideoPlayerVC: UIViewController {
     @IBAction func videoFormatInfo(_ sender: Any) {
         let videoSupportMessage = "videoSupportMessage".localized
         let supportFormat = String(format: "%@%@", videoSupportMessage, DiskStorage.shared.supportedVideoExtensions.joined(separator: ", "))
-        UIAlertController.show(title: "Warning".localized, message: supportFormat)
+        UIAlertController.showOkAlert(title: "Warning".localized, message: supportFormat)
     }
 }
 

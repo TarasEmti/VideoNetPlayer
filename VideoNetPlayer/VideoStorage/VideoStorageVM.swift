@@ -28,7 +28,7 @@ class VideoStorageVM {
                 return false
             })
         } catch {
-            print(error)
+            ErrorHandler.handle(error: error)
             files = []
         }
         videoFiles = files

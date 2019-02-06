@@ -122,8 +122,7 @@ class AVPlayerController: UIViewController {
         let item = AVPlayerItem(url: url)
         if item.asset.duration.seconds == 0 {
             DiskStorage.shared.deleteFile(at: url)
-            UIAlertController.show(title: "Error".localized,
-                                   message: "Bad video format".localized)
+            ErrorHandler.handleError(message: "Bad video format".localized)
             return
         }
         if let player = playerLayer.player {

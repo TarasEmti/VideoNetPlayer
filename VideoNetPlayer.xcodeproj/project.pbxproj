@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7BAEA0097D50A4FBBEEB0510 /* Pods_VideoNetPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFDFBFF5D26D991BA4BC0AC /* Pods_VideoNetPlayer.framework */; };
 		AD26CA94220B211900AC2A22 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD26CA93220B211900AC2A22 /* ErrorHandler.swift */; };
+		AD26CA96220B27A000AC2A22 /* AVPlayerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD26CA95220B27A000AC2A22 /* AVPlayerVM.swift */; };
 		AD8A79762204B8B300B0989F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A79752204B8B300B0989F /* String+Ext.swift */; };
 		AD8A79782205484600B0989F /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A79772205484600B0989F /* DownloadManager.swift */; };
 		AD8A797B220556C700B0989F /* AVPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A7979220556C700B0989F /* AVPlayerController.swift */; };
@@ -32,6 +33,7 @@
 		0EFDFBFF5D26D991BA4BC0AC /* Pods_VideoNetPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoNetPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D4B3D7C222D9D388D81C6EF /* Pods-VideoNetPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoNetPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoNetPlayer/Pods-VideoNetPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		AD26CA93220B211900AC2A22 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		AD26CA95220B27A000AC2A22 /* AVPlayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerVM.swift; sourceTree = "<group>"; };
 		AD8A79752204B8B300B0989F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		AD8A79772205484600B0989F /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		AD8A7979220556C700B0989F /* AVPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				AD8A7979220556C700B0989F /* AVPlayerController.swift */,
 				AD8A797A220556C700B0989F /* AVPlayerController.xib */,
+				AD26CA95220B27A000AC2A22 /* AVPlayerVM.swift */,
 			);
 			path = AVPlayer;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				AD26CA94220B211900AC2A22 /* ErrorHandler.swift in Sources */,
 				ADAB271822035B2F0080A411 /* VideoPlayerVM.swift in Sources */,
 				AD8A79762204B8B300B0989F /* String+Ext.swift in Sources */,
+				AD26CA96220B27A000AC2A22 /* AVPlayerVM.swift in Sources */,
 				ADAB2714220357900080A411 /* VideoPlayerVC.swift in Sources */,
 				AD8A7996220764E900B0989F /* UIAlertController+Ext.swift in Sources */,
 				AD8A7986220725E900B0989F /* DiskStorage.swift in Sources */,

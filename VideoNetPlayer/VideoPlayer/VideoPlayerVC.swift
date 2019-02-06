@@ -48,7 +48,7 @@ class VideoPlayerVC: UIViewController {
             guard let this = self else { return }
             let vc = VideoStorageVC()
             vc.viewModel.chosenItem.asObservable().filter({$0 != nil}).subscribe(onNext: { (url) in
-                this.videoPlayer.loadVideo(url: url!)
+                this.videoPlayer.viewModel.videoUrl.accept(url)
             }).disposed(by: this.disposeBag)
             this.show(vc, sender: self)
         }).disposed(by: disposeBag)
@@ -70,7 +70,7 @@ class VideoPlayerVC: UIViewController {
         viewModel.videoUrl.subscribe(onNext: { [weak self] (url) in
             guard let this = self,
                 let url = url else { return }
-            this.videoPlayer.loadVideo(url: url)
+            this.videoPlayer.viewModel.videoUrl.accept(url)
         }).disposed(by: disposeBag)
         
         urlTextField.rx.text

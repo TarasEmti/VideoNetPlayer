@@ -20,6 +20,8 @@ class AVPlayerController: UIViewController {
     @IBOutlet weak private var currentPlayerTimeLabel: UILabel!
     @IBOutlet weak private var videoLengthLabel: UILabel!
     
+    let viewModel = AVPlayerVM()
+    
     private let playerLayer = AVPlayerLayer()
     private var observerToken: Any?
     private let isHudShown = BehaviorRelay(value: false)
@@ -27,11 +29,7 @@ class AVPlayerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hudViewLayer.alpha = 0
-        videoTitleLabel.text = ""
-        currentPlayerTimeLabel.text = "--:--"
         currentPlayerTimeLabel.layer.cornerRadius = 5
-        videoLengthLabel.text = "--:--"
         videoLengthLabel.layer.cornerRadius = 5
         playPauseButton.tintColor = .red
         videoSlider.isUserInteractionEnabled = false
@@ -116,24 +114,31 @@ class AVPlayerController: UIViewController {
                 }
             }
         }).disposed(by: disposeBag)
-    }
-    
-    func loadVideo(url: URL) {
-        let item = AVPlayerItem(url: url)
-        if item.asset.duration.seconds == 0 {
-            DiskStorage.shared.deleteFile(at: url)
-            ErrorHandler.handleError(message: "Bad video format".localized)
-            return
-        }
-        if let player = playerLayer.player {
-            player.replaceCurrentItem(with: item)
-            player.seek(to: .zero)
-            addPeriodicTimeObserver()
-            player.play()
-            videoTitleLabel.text = String(format: "\t%@", url.lastPathComponent)
-            videoLengthLabel.text = item.asset.duration.toString()
-            videoSlider.maximumValue = Float(item.asset.duration.seconds)
-        }
+        
+        viewModel.videoItem.asObservable().subscribe(onNext: { [weak self] (item) in
+            guard let this = self,
+                let player = this.playerLayer.player else {
+                    return
+            }
+            if let item = item {
+                this.videoSlider.maximumValue = Float(item.asset.duration.seconds)
+                player.replaceCurrentItem(with: item)
+                player.seek(to: .zero)
+                this.addPeriodicTimeObserver()
+                player.play()
+            } else {
+                this.hudViewLayer.alpha = 0
+                this.currentPlayerTimeLabel.text = "--:--"
+            }
+        }).disposed(by: disposeBag)
+        
+        viewModel.videoDuration
+            .bind(to: videoLengthLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.videoName
+            .bind(to: videoTitleLabel.rx.text)
+            .disposed(by: disposeBag)
     }
     
     func addPeriodicTimeObserver() {

@@ -15,19 +15,37 @@ class AVPlayerVM {
     let videoItem: BehaviorRelay<AVPlayerItem?> = BehaviorRelay(value: nil)
     let videoName: BehaviorRelay<String> = BehaviorRelay(value: "")
     let videoDuration: BehaviorRelay<String> = BehaviorRelay(value: "--:--")
+    let isLoadingAsset: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
     let disposeBag = DisposeBag()
     
+    private static let playableKey = "playable"
+    
     init() {
-        videoUrl.asObservable().subscribe(onNext: { [weak self] (url) in
+        videoUrl.asObservable()
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] (url) in
             if let url = url {
-                let playerItem = AVPlayerItem(url: url)
-                if playerItem.asset.duration.seconds > 0 {
-                    self?.videoItem.accept(playerItem)
-                } else {
-                    DiskStorage.shared.deleteFile(at: url)
-                    ErrorHandler.handleError(message: "Bad video format".localized)
-                }
+                self?.isLoadingAsset.accept(true)
+                let asset = AVAsset(url: url)
+                asset.loadValuesAsynchronously(forKeys: [AVPlayerVM.playableKey], completionHandler: {
+                    var error: NSError? = nil
+                    let status = asset.statusOfValue(forKey: AVPlayerVM.playableKey, error: &error)
+                    switch status {
+                    case .loaded:
+                        let playerItem = AVPlayerItem(asset: asset)
+                        DispatchQueue.main.async {
+                            self?.isLoadingAsset.accept(false)
+                            self?.videoItem.accept(playerItem)
+                        }
+                    case .failed:
+                        ErrorHandler.handle(error: error!)
+                    case .cancelled:
+                        ErrorHandler.handleError(message: "Load cancelled")
+                    default:
+                        break
+                    }
+                })
             }
         }).disposed(by: disposeBag)
         

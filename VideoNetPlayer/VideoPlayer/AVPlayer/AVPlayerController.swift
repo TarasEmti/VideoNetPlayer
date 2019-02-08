@@ -20,6 +20,14 @@ class AVPlayerController: UIViewController {
     @IBOutlet weak private var currentPlayerTimeLabel: UILabel!
     @IBOutlet weak private var videoLengthLabel: UILabel!
     
+    lazy var activityView: UIActivityIndicatorView = {
+        let activityView = UIActivityIndicatorView()
+        activityView.style = .whiteLarge
+        view.addSubview(activityView)
+        activityView.hidesWhenStopped = true
+        return activityView
+    }()
+    
     let viewModel = AVPlayerVM()
     
     private let playerLayer = AVPlayerLayer()
@@ -77,6 +85,7 @@ class AVPlayerController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         playerLayer.frame = view.frame
+        activityView.center = view.center
     }
     
     private func bind() {
@@ -138,6 +147,10 @@ class AVPlayerController: UIViewController {
         
         viewModel.videoName
             .bind(to: videoTitleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.isLoadingAsset
+            .bind(to: activityView.rx.isAnimating)
             .disposed(by: disposeBag)
     }
     

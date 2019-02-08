@@ -126,7 +126,7 @@ class VideoPlayerVC: UIViewController {
             .disposed(by: disposeBag)
         
         #if DEBUG
-            urlTextField.text = "https://sample-videos.com/video123/mp4/240/big_buck_bunny_240p_30mb.mp4"
+            urlTextField.text = "https://sample-videos.com/video123/mp4/480/big_buck_bunny_480p_30mb.mp4"
         #endif
     }
     

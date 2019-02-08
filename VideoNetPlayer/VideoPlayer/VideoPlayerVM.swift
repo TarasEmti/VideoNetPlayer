@@ -28,13 +28,14 @@ class VideoPlayerVM {
         if let localUrl = DiskStorage.shared.storageUrlForVideo(downloadURL: url) {
             videoUrl.accept(localUrl)
         } else {
+            videoUrl.accept(url)
             DownloadManager.shared.downloadData(from: url)
                 .observeOn(MainScheduler.asyncInstance)
-                .subscribe(onNext: { [weak self] (data) in
+                .subscribe(onNext: { (data) in
                     do {
-                        let localUrl = try DiskStorage.shared.saveVideo(data: data,
-                                                                        name: url.lastPathComponent)
-                        self?.videoUrl.accept(localUrl)
+                        let localUrl = try DiskStorage.shared.cacheVideo(data: data,
+                                                                         name: url.lastPathComponent)
+                        print("New video at: \(localUrl.path)")
                     } catch {
                         ErrorHandler.handle(error: error)
                     }

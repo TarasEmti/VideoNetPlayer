@@ -16,7 +16,7 @@ class DiskStorage {
     private init() {}
     
     var tempVideoFolder: URL {
-        let url = try? FileManager.default.url(for: .downloadsDirectory,
+        let url = try? FileManager.default.url(for: .cachesDirectory,
                                                in: .userDomainMask,
                                                appropriateFor: nil,
                                                create: false)
@@ -34,7 +34,7 @@ class DiskStorage {
     }
     let supportedVideoExtensions: Set<String> = ["mp4", "mov", "m4v"]
     
-    func saveVideo(data: Data, name: String) throws -> URL {
+    func cacheVideo(data: Data, name: String) throws -> URL {
         do {
             let videoUrl = tempVideoFolder.appendingPathComponent(name)
             try saveFile(at: videoUrl, fileData: data)

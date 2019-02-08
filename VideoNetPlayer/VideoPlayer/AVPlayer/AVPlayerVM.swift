@@ -22,8 +22,8 @@ class AVPlayerVM {
     private static let playableKey = "playable"
     
     init() {
-        videoUrl.asObservable()
-            .distinctUntilChanged()
+        videoUrl
+            .asObservable()
             .subscribe(onNext: { [weak self] (url) in
             if let url = url {
                 self?.isLoadingAsset.accept(true)

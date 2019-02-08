@@ -31,19 +31,19 @@ class AVPlayerVM {
                 asset.loadValuesAsynchronously(forKeys: [AVPlayerVM.playableKey], completionHandler: {
                     var error: NSError? = nil
                     let status = asset.statusOfValue(forKey: AVPlayerVM.playableKey, error: &error)
-                    switch status {
-                    case .loaded:
-                        let playerItem = AVPlayerItem(asset: asset)
-                        DispatchQueue.main.async {
-                            self?.isLoadingAsset.accept(false)
+                    DispatchQueue.main.async {
+                        switch status {
+                        case .loaded:
+                            let playerItem = AVPlayerItem(asset: asset)
                             self?.videoItem.accept(playerItem)
+                        case .failed:
+                            ErrorHandler.handle(error: error!)
+                        case .cancelled:
+                            ErrorHandler.handleError(message: "Load cancelled")
+                        default:
+                            break
                         }
-                    case .failed:
-                        ErrorHandler.handle(error: error!)
-                    case .cancelled:
-                        ErrorHandler.handleError(message: "Load cancelled")
-                    default:
-                        break
+                        self?.isLoadingAsset.accept(false)
                     }
                 })
             }

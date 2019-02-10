@@ -18,8 +18,6 @@ class VideoPlayerVMTests: XCTestCase {
 
     var sut: VideoPlayerVM!
     var downloadService: MockDownloadService!
-    var scheduler: TestScheduler!
-    var disposeBag: DisposeBag!
     
     override func setUp() {
         downloadService = MockDownloadService()

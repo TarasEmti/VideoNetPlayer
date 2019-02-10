@@ -11,6 +11,7 @@
 		7BAEA0097D50A4FBBEEB0510 /* Pods_VideoNetPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFDFBFF5D26D991BA4BC0AC /* Pods_VideoNetPlayer.framework */; };
 		AD20BE9A220FD813002F4196 /* VideoPlayerVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD20BE99220FD813002F4196 /* VideoPlayerVMTests.swift */; };
 		AD20BE9C220FFD9C002F4196 /* DownloadServicability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD20BE9B220FFD9C002F4196 /* DownloadServicability.swift */; };
+		AD20BEA4221073D5002F4196 /* AVPlayerVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD20BEA3221073D5002F4196 /* AVPlayerVMTests.swift */; };
 		AD26CA94220B211900AC2A22 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD26CA93220B211900AC2A22 /* ErrorHandler.swift */; };
 		AD26CA96220B27A000AC2A22 /* AVPlayerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD26CA95220B27A000AC2A22 /* AVPlayerVM.swift */; };
 		AD8A79762204B8B300B0989F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A79752204B8B300B0989F /* String+Ext.swift */; };
@@ -50,6 +51,7 @@
 		AD04B90C220E22DA0031AF47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD20BE99220FD813002F4196 /* VideoPlayerVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVMTests.swift; sourceTree = "<group>"; };
 		AD20BE9B220FFD9C002F4196 /* DownloadServicability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServicability.swift; sourceTree = "<group>"; };
+		AD20BEA3221073D5002F4196 /* AVPlayerVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerVMTests.swift; sourceTree = "<group>"; };
 		AD26CA93220B211900AC2A22 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		AD26CA95220B27A000AC2A22 /* AVPlayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerVM.swift; sourceTree = "<group>"; };
 		AD8A79752204B8B300B0989F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		AD04B909220E22DA0031AF47 /* VideoNetPlayerTests */ = {
 			isa = PBXGroup;
 			children = (
+				AD20BEA3221073D5002F4196 /* AVPlayerVMTests.swift */,
 				AD20BE99220FD813002F4196 /* VideoPlayerVMTests.swift */,
 				AD04B90C220E22DA0031AF47 /* Info.plist */,
 			);
@@ -448,6 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD20BEA4221073D5002F4196 /* AVPlayerVMTests.swift in Sources */,
 				AD20BE9A220FD813002F4196 /* VideoPlayerVMTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

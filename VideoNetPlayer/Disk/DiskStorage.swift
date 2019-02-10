@@ -54,6 +54,9 @@ class DiskStorage {
     }
     
     func storageUrlForVideo(downloadURL url: URL) -> URL? {
+        if url.lastPathComponent.isEmpty {
+            return nil
+        }
         let videoPath = tempVideoFolder.appendingPathComponent(url.lastPathComponent)
         if FileManager.default.fileExists(atPath: videoPath.path) {
             return videoPath

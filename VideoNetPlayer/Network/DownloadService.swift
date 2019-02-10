@@ -81,15 +81,15 @@ class MockDownloadService: DownloadServicability {
     func downloadData(from url: URL) -> Observable<Data> {
         return Observable.create({ [weak self] (observer) -> Disposable in
             self?.isBusy.value = true
+            self?.downloadProgress.value = 0
             observer.onNext(Data())
-            return Disposables.create {
-                self?.isBusy.value = false
-            }
+            return Disposables.create()
         })
     }
     
     func cancelTask() {
         isBusy.value = false
+        downloadProgress.value = nil
     }
     
     let isBusy: Variable<Bool> = Variable(false)

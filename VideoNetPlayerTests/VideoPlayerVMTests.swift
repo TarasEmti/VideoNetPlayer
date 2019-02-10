@@ -18,20 +18,24 @@ class VideoPlayerVMTests: XCTestCase {
 
     var sut: VideoPlayerVM!
     var downloadService: MockDownloadService!
+    var scheduler: TestScheduler!
+    var disposeBag: DisposeBag!
     
     override func setUp() {
         downloadService = MockDownloadService()
         sut = VideoPlayerVM(videoLink: nil, downloadService: downloadService!)
     }
     
+    func test_setup() {
+        let isUploading = try? sut.isServiceUploading.asObservable().toBlocking().first()
+        XCTAssertTrue(isUploading == false)
+        XCTAssertNil(sut.uploadProgress.value)
+    }
+    
     func test_acceptWebUrl() {
         sut.uploadVideo(from: URL(string: "https://www.google.com")!)
         XCTAssertTrue(sut.videoUrl.value != nil)
-    }
-    
-    func test_acceptLocalUrl() {
-        sut.uploadVideo(from: DiskStorage.shared.tempVideoFolder)
-        XCTAssertTrue(sut.videoUrl.value != nil)
+        XCTAssertTrue(sut.isServiceUploading.value == true)
     }
 
     override func tearDown() {

@@ -77,7 +77,7 @@ extension DownloadService: URLSessionTaskDelegate {
     }
 }
 
-class MockApiService: DownloadServicability {
+class MockDownloadService: DownloadServicability {
     func downloadData(from url: URL) -> Observable<Data> {
         return Observable.create({ [weak self] (observer) -> Disposable in
             self?.isBusy.value = true

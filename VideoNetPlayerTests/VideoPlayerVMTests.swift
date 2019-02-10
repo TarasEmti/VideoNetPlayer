@@ -22,7 +22,16 @@ class VideoPlayerVMTests: XCTestCase {
     override func setUp() {
         downloadService = MockDownloadService()
         sut = VideoPlayerVM(videoLink: nil, downloadService: downloadService!)
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+    
+    func test_acceptWebUrl() {
+        sut.uploadVideo(from: URL(string: "https://www.google.com")!)
+        XCTAssertTrue(sut.videoUrl.value != nil)
+    }
+    
+    func test_acceptLocalUrl() {
+        sut.uploadVideo(from: DiskStorage.shared.tempVideoFolder)
+        XCTAssertTrue(sut.videoUrl.value != nil)
     }
 
     override func tearDown() {

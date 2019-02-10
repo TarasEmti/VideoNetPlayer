@@ -17,7 +17,7 @@ class VideoPlayerVM {
     
     var videoLink: String?
     
-    let downloadService: DownloadServicability
+    private let downloadService: DownloadServicability
     
     let videoUrl: BehaviorRelay<URL?> = BehaviorRelay(value: nil)
     let disposeBag = DisposeBag()
@@ -46,5 +46,17 @@ class VideoPlayerVM {
                     ErrorHandler.handle(error: error)
                 }).disposed(by: disposeBag)
         }
+    }
+    
+    var isServiceUploading: Variable<Bool> {
+        return downloadService.isBusy
+    }
+    
+    var uploadProgress: Variable<Float?> {
+        return downloadService.downloadProgress
+    }
+    
+    func cancelUpload() {
+        downloadService.cancelTask()
     }
 }

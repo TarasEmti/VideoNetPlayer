@@ -88,13 +88,13 @@ class VideoPlayerVC: UIViewController {
             this.viewModel.uploadVideo(from: url)
         }).disposed(by: disposeBag)
         
-        viewModel.downloadService.isBusy.asObservable()
+        viewModel.isServiceUploading.asObservable()
             .map { !$0 }
             .observeOn(MainScheduler.asyncInstance)
             .bind(to: progressBar.rx.isHidden)
             .disposed(by: disposeBag)
 
-        viewModel.downloadService.downloadProgress.asObservable()
+        viewModel.uploadProgress.asObservable()
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] (progress) in
                 guard let this = self,
@@ -104,26 +104,26 @@ class VideoPlayerVC: UIViewController {
                 this.progressLabel.text = "\(percentage)%"
             }).disposed(by: disposeBag)
         
-        viewModel.downloadService.isBusy.asObservable()
+        viewModel.isServiceUploading.asObservable()
             .map { !$0 }
             .observeOn(MainScheduler.asyncInstance)
             .bind(to: progressLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
-        viewModel.downloadService.isBusy.asObservable()
+        viewModel.isServiceUploading.asObservable()
             .map { !$0 }
             .observeOn(MainScheduler.asyncInstance)
             .bind(to: cancelButton.rx.isHidden)
             .disposed(by: disposeBag)
         
-        viewModel.downloadService.isBusy.asObservable()
+        viewModel.isServiceUploading.asObservable()
             .observeOn(MainScheduler.asyncInstance)
             .bind(to: downloadButton.rx.isHidden)
             .disposed(by: disposeBag)
         
         cancelButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                self?.viewModel.downloadService.cancelTask()
+                self?.viewModel.cancelUpload()
             }).disposed(by: disposeBag)
         
         #if DEBUG

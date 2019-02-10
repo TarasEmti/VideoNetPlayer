@@ -7,16 +7,20 @@
 //
 
 import XCTest
+import RxSwift
+import RxCocoa
+import RxTest
+import RxBlocking
 
 @testable import VideoNetPlayer
 
 class VideoPlayerVMTests: XCTestCase {
 
     var sut: VideoPlayerVM!
-    var downloadService: MockApiService!
+    var downloadService: MockDownloadService!
     
     override func setUp() {
-        downloadService = MockApiService()
+        downloadService = MockDownloadService()
         sut = VideoPlayerVM(videoLink: nil, downloadService: downloadService!)
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -26,17 +30,10 @@ class VideoPlayerVMTests: XCTestCase {
         sut = nil
     }
 
-    func test_start() {
-        let mockUrl = URL.init(fileURLWithPath: "")
-        sut.uploadVideo(from: mockUrl)
-        XCTAssert(sut.downloadService.isBusy.toBlocking())
+    func test_buttonTexts() {
+        XCTAssert(!sut.cancelDownloadButtonText.isEmpty)
+        XCTAssert(!sut.downloadButtonText.isEmpty)
+        XCTAssert(!sut.linkLabelText.isEmpty)
+        XCTAssert(!sut.urlTextFieldPlaceholder.isEmpty)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

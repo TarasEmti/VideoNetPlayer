@@ -78,13 +78,24 @@ extension DownloadService: URLSessionTaskDelegate {
 }
 
 class MockDownloadService: DownloadServicability {
+    
+    var observer: AnyObserver<Data>?
+    
     func downloadData(from url: URL) -> Observable<Data> {
         return Observable.create({ [weak self] (observer) -> Disposable in
             self?.isBusy.value = true
             self?.downloadProgress.value = 0
-            observer.onNext(Data())
+            self?.observer = observer
             return Disposables.create()
         })
+    }
+    
+    func downloadSuccess() {
+        observer?.onNext(Data())
+    }
+    
+    func downloadError() {
+        observer?.onError(DownloadError(code: 1, message: "Error".localized))
     }
     
     func cancelTask() {

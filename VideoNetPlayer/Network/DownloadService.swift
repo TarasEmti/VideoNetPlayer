@@ -1,5 +1,5 @@
 //
-//  DownloadManager.swift
+//  DownloadService.swift
 //  VideoNetPlayer
 //
 //  Created by Тарас Минин on 02/02/2019.
@@ -9,17 +9,16 @@
 import Foundation
 import RxSwift
 
-final class DownloadManager: NSObject {
-    static let shared = DownloadManager()
+final class DownloadService: NSObject, DownloadServicability {
     
     private var session: URLSession!
     private var task: URLSessionDownloadTask?
     
-    var observer: AnyObserver<Data>?
+    fileprivate var observer: AnyObserver<Data>?
     let isBusy = Variable(false)
-    let downloadProgress: Variable<Float> = Variable(0)
+    let downloadProgress: Variable<Float?> = Variable(nil)
     
-    override private init() {
+    override init() {
         super.init()
         session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main)
     }
@@ -50,13 +49,13 @@ final class DownloadManager: NSObject {
     fileprivate func downloadComplete() {
         self.task = nil
         isBusy.value = false
-        downloadProgress.value = 0
+        downloadProgress.value = nil
         observer?.onCompleted()
         observer = nil
     }
 }
 
-extension DownloadManager: URLSessionDownloadDelegate {
+extension DownloadService: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         if let data = try? Data(contentsOf: location) {
             observer?.onNext(data)
@@ -69,11 +68,30 @@ extension DownloadManager: URLSessionDownloadDelegate {
     }
 }
 
-extension DownloadManager: URLSessionTaskDelegate {
+extension DownloadService: URLSessionTaskDelegate {
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if let error = error {
             observer?.onError(DownloadError(code: -2, message: error.localizedDescription))
             downloadComplete()
         }
     }
+}
+
+class MockApiService: DownloadServicability {
+    func downloadData(from url: URL) -> Observable<Data> {
+        return Observable.create({ [weak self] (observer) -> Disposable in
+            self?.isBusy.value = true
+            observer.onNext(Data())
+            return Disposables.create {
+                self?.isBusy.value = false
+            }
+        })
+    }
+    
+    func cancelTask() {
+        isBusy.value = false
+    }
+    
+    let isBusy: Variable<Bool> = Variable(false)
+    let downloadProgress: Variable<Float?> = Variable(nil)
 }

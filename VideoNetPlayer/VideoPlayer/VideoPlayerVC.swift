@@ -88,42 +88,43 @@ class VideoPlayerVC: UIViewController {
             this.viewModel.uploadVideo(from: url)
         }).disposed(by: disposeBag)
         
-        DownloadManager.shared.isBusy.asObservable()
+        viewModel.downloadService.isBusy.asObservable()
             .map { !$0 }
             .observeOn(MainScheduler.asyncInstance)
             .bind(to: progressBar.rx.isHidden)
             .disposed(by: disposeBag)
 
-        DownloadManager.shared.downloadProgress.asObservable()
+        viewModel.downloadService.downloadProgress.asObservable()
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] (progress) in
-                self?.progressBar.progress = progress
+                guard let this = self,
+                    let progress = progress else { return }
+                this.progressBar.progress = progress
                 let percentage = String(format: "%.2f", progress*100)
-                self?.progressLabel.text = "\(percentage)%"
+                this.progressLabel.text = "\(percentage)%"
             }).disposed(by: disposeBag)
         
-        DownloadManager.shared.isBusy.asObservable()
+        viewModel.downloadService.isBusy.asObservable()
             .map { !$0 }
             .observeOn(MainScheduler.asyncInstance)
             .bind(to: progressLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
-        DownloadManager.shared.isBusy.asObservable()
+        viewModel.downloadService.isBusy.asObservable()
             .map { !$0 }
             .observeOn(MainScheduler.asyncInstance)
             .bind(to: cancelButton.rx.isHidden)
             .disposed(by: disposeBag)
         
-        DownloadManager.shared.isBusy.asObservable()
+        viewModel.downloadService.isBusy.asObservable()
             .observeOn(MainScheduler.asyncInstance)
             .bind(to: downloadButton.rx.isHidden)
             .disposed(by: disposeBag)
         
         cancelButton.rx.tap
-            .subscribe(onNext: { _ in
-                DownloadManager.shared.cancelTask()
-            })
-            .disposed(by: disposeBag)
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewModel.downloadService.cancelTask()
+            }).disposed(by: disposeBag)
         
         #if DEBUG
             urlTextField.text = "https://sample-videos.com/video123/mp4/480/big_buck_bunny_480p_30mb.mp4"

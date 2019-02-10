@@ -17,11 +17,14 @@ class VideoPlayerVM {
     
     var videoLink: String?
     
+    let downloadService: DownloadServicability
+    
     let videoUrl: BehaviorRelay<URL?> = BehaviorRelay(value: nil)
     let disposeBag = DisposeBag()
     
-    init(videoLink: String? = nil) {
+    init(videoLink: String? = nil, downloadService: DownloadServicability = DownloadService()) {
         self.videoLink = videoLink
+        self.downloadService = downloadService
     }
     
     func uploadVideo(from url: URL) {
@@ -29,7 +32,7 @@ class VideoPlayerVM {
             videoUrl.accept(localUrl)
         } else {
             videoUrl.accept(url)
-            DownloadManager.shared.downloadData(from: url)
+            downloadService.downloadData(from: url)
                 .observeOn(MainScheduler.asyncInstance)
                 .subscribe(onNext: { (data) in
                     do {

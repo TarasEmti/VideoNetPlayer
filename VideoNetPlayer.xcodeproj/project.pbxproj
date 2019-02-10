@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		084242DFDBB6951A03B9CD18 /* Pods_VideoNetPlayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB708889617B4A477A4F40B2 /* Pods_VideoNetPlayerTests.framework */; };
 		7BAEA0097D50A4FBBEEB0510 /* Pods_VideoNetPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFDFBFF5D26D991BA4BC0AC /* Pods_VideoNetPlayer.framework */; };
+		AD20BE9A220FD813002F4196 /* VideoPlayerVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD20BE99220FD813002F4196 /* VideoPlayerVMTests.swift */; };
+		AD20BE9C220FFD9C002F4196 /* DownloadServicability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD20BE9B220FFD9C002F4196 /* DownloadServicability.swift */; };
 		AD26CA94220B211900AC2A22 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD26CA93220B211900AC2A22 /* ErrorHandler.swift */; };
 		AD26CA96220B27A000AC2A22 /* AVPlayerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD26CA95220B27A000AC2A22 /* AVPlayerVM.swift */; };
 		AD8A79762204B8B300B0989F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A79752204B8B300B0989F /* String+Ext.swift */; };
-		AD8A79782205484600B0989F /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A79772205484600B0989F /* DownloadManager.swift */; };
+		AD8A79782205484600B0989F /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A79772205484600B0989F /* DownloadService.swift */; };
 		AD8A797B220556C700B0989F /* AVPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A7979220556C700B0989F /* AVPlayerController.swift */; };
 		AD8A797C220556C700B0989F /* AVPlayerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8A797A220556C700B0989F /* AVPlayerController.xib */; };
 		AD8A797E22060C5A00B0989F /* CMTime+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8A797D22060C5A00B0989F /* CMTime+Ext.swift */; };
@@ -29,13 +32,28 @@
 		ADAB271822035B2F0080A411 /* VideoPlayerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB271722035B2F0080A411 /* VideoPlayerVM.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AD04B90D220E22DA0031AF47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADAB26F5220352960080A411 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADAB26FC220352960080A411;
+			remoteInfo = VideoNetPlayer;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0EFDFBFF5D26D991BA4BC0AC /* Pods_VideoNetPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoNetPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26F4D60AF8EB6B9B6C6BB8EA /* Pods-VideoNetPlayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoNetPlayerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoNetPlayerTests/Pods-VideoNetPlayerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6D4B3D7C222D9D388D81C6EF /* Pods-VideoNetPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoNetPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoNetPlayer/Pods-VideoNetPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		AD04B908220E22DA0031AF47 /* VideoNetPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoNetPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD04B90C220E22DA0031AF47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD20BE99220FD813002F4196 /* VideoPlayerVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVMTests.swift; sourceTree = "<group>"; };
+		AD20BE9B220FFD9C002F4196 /* DownloadServicability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServicability.swift; sourceTree = "<group>"; };
 		AD26CA93220B211900AC2A22 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		AD26CA95220B27A000AC2A22 /* AVPlayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerVM.swift; sourceTree = "<group>"; };
 		AD8A79752204B8B300B0989F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		AD8A79772205484600B0989F /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		AD8A79772205484600B0989F /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		AD8A7979220556C700B0989F /* AVPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerController.swift; sourceTree = "<group>"; };
 		AD8A797A220556C700B0989F /* AVPlayerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AVPlayerController.xib; sourceTree = "<group>"; };
 		AD8A797D22060C5A00B0989F /* CMTime+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Ext.swift"; sourceTree = "<group>"; };
@@ -56,9 +74,19 @@
 		ADAB2713220357900080A411 /* VideoPlayerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayerVC.xib; sourceTree = "<group>"; };
 		ADAB271722035B2F0080A411 /* VideoPlayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVM.swift; sourceTree = "<group>"; };
 		CBD6D0B5A032EC0895CA8299 /* Pods-VideoNetPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoNetPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoNetPlayer/Pods-VideoNetPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		DB708889617B4A477A4F40B2 /* Pods_VideoNetPlayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoNetPlayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F248B53A4F09ECB57C14811E /* Pods-VideoNetPlayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoNetPlayerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoNetPlayerTests/Pods-VideoNetPlayerTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AD04B905220E22DA0031AF47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				084242DFDBB6951A03B9CD18 /* Pods_VideoNetPlayerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ADAB26FA220352960080A411 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -74,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				0EFDFBFF5D26D991BA4BC0AC /* Pods_VideoNetPlayer.framework */,
+				DB708889617B4A477A4F40B2 /* Pods_VideoNetPlayerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,8 +112,19 @@
 			children = (
 				CBD6D0B5A032EC0895CA8299 /* Pods-VideoNetPlayer.debug.xcconfig */,
 				6D4B3D7C222D9D388D81C6EF /* Pods-VideoNetPlayer.release.xcconfig */,
+				26F4D60AF8EB6B9B6C6BB8EA /* Pods-VideoNetPlayerTests.debug.xcconfig */,
+				F248B53A4F09ECB57C14811E /* Pods-VideoNetPlayerTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AD04B909220E22DA0031AF47 /* VideoNetPlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				AD20BE99220FD813002F4196 /* VideoPlayerVMTests.swift */,
+				AD04B90C220E22DA0031AF47 /* Info.plist */,
+			);
+			path = VideoNetPlayerTests;
 			sourceTree = "<group>";
 		};
 		AD26CA92220B210700AC2A22 /* Common */ = {
@@ -108,8 +148,9 @@
 		AD8A797F2206E24700B0989F /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				AD8A79772205484600B0989F /* DownloadManager.swift */,
+				AD8A79772205484600B0989F /* DownloadService.swift */,
 				AD8A79802206E26C00B0989F /* DownloadError.swift */,
+				AD20BE9B220FFD9C002F4196 /* DownloadServicability.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -154,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				ADAB26FF220352960080A411 /* VideoNetPlayer */,
+				AD04B909220E22DA0031AF47 /* VideoNetPlayerTests */,
 				ADAB26FE220352960080A411 /* Products */,
 				9A5287D1E6FD489A74D6254D /* Pods */,
 				0B6BD3FD1AF8719658504AA7 /* Frameworks */,
@@ -164,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				ADAB26FD220352960080A411 /* VideoNetPlayer.app */,
+				AD04B908220E22DA0031AF47 /* VideoNetPlayerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,6 +242,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AD04B907220E22DA0031AF47 /* VideoNetPlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD04B911220E22DA0031AF47 /* Build configuration list for PBXNativeTarget "VideoNetPlayerTests" */;
+			buildPhases = (
+				0E817E9E9CA3BFB1E416328C /* [CP] Check Pods Manifest.lock */,
+				AD04B904220E22DA0031AF47 /* Sources */,
+				AD04B905220E22DA0031AF47 /* Frameworks */,
+				AD04B906220E22DA0031AF47 /* Resources */,
+				C5F8634F4ED9ED8E54A4DABF /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD04B90E220E22DA0031AF47 /* PBXTargetDependency */,
+			);
+			name = VideoNetPlayerTests;
+			productName = VideoNetPlayerTests;
+			productReference = AD04B908220E22DA0031AF47 /* VideoNetPlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		ADAB26FC220352960080A411 /* VideoNetPlayer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADAB270F220352970080A411 /* Build configuration list for PBXNativeTarget "VideoNetPlayer" */;
@@ -228,6 +291,10 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Тарас Минин";
 				TargetAttributes = {
+					AD04B907220E22DA0031AF47 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = ADAB26FC220352960080A411;
+					};
 					ADAB26FC220352960080A411 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -248,11 +315,19 @@
 			projectRoot = "";
 			targets = (
 				ADAB26FC220352960080A411 /* VideoNetPlayer */,
+				AD04B907220E22DA0031AF47 /* VideoNetPlayerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AD04B906220E22DA0031AF47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ADAB26FB220352960080A411 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,6 +343,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E817E9E9CA3BFB1E416328C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VideoNetPlayerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A5483A8A30540B3CEB6024CC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,6 +389,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VideoNetPlayer/Pods-VideoNetPlayer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5F8634F4ED9ED8E54A4DABF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VideoNetPlayerTests/Pods-VideoNetPlayerTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VideoNetPlayerTests/Pods-VideoNetPlayerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FC8074A136B2526DB46BED7B /* [CP] Check Pods Manifest.lock */ = {
@@ -319,6 +444,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AD04B904220E22DA0031AF47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD20BE9A220FD813002F4196 /* VideoPlayerVMTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ADAB26F9220352960080A411 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -327,7 +460,7 @@
 				AD8A79812206E26C00B0989F /* DownloadError.swift in Sources */,
 				ADAB2701220352960080A411 /* AppDelegate.swift in Sources */,
 				AD8A798D22072FD600B0989F /* VideoStorageVM.swift in Sources */,
-				AD8A79782205484600B0989F /* DownloadManager.swift in Sources */,
+				AD8A79782205484600B0989F /* DownloadService.swift in Sources */,
 				AD26CA94220B211900AC2A22 /* ErrorHandler.swift in Sources */,
 				ADAB271822035B2F0080A411 /* VideoPlayerVM.swift in Sources */,
 				AD8A79762204B8B300B0989F /* String+Ext.swift in Sources */,
@@ -335,12 +468,21 @@
 				ADAB2714220357900080A411 /* VideoPlayerVC.swift in Sources */,
 				AD8A7996220764E900B0989F /* UIAlertController+Ext.swift in Sources */,
 				AD8A7986220725E900B0989F /* DiskStorage.swift in Sources */,
+				AD20BE9C220FFD9C002F4196 /* DownloadServicability.swift in Sources */,
 				AD8A797E22060C5A00B0989F /* CMTime+Ext.swift in Sources */,
 				AD8A797B220556C700B0989F /* AVPlayerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD04B90E220E22DA0031AF47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ADAB26FC220352960080A411 /* VideoNetPlayer */;
+			targetProxy = AD04B90D220E22DA0031AF47 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AD8A799322075DF700B0989F /* Localizable.strings */ = {
@@ -364,6 +506,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AD04B90F220E22DA0031AF47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26F4D60AF8EB6B9B6C6BB8EA /* Pods-VideoNetPlayerTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D82HCVQN26;
+				INFOPLIST_FILE = VideoNetPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = alohaTest.VideoNetPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoNetPlayer.app/VideoNetPlayer";
+			};
+			name = Debug;
+		};
+		AD04B910220E22DA0031AF47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F248B53A4F09ECB57C14811E /* Pods-VideoNetPlayerTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D82HCVQN26;
+				INFOPLIST_FILE = VideoNetPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = alohaTest.VideoNetPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoNetPlayer.app/VideoNetPlayer";
+			};
+			name = Release;
+		};
 		ADAB270D220352970080A411 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -523,6 +707,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AD04B911220E22DA0031AF47 /* Build configuration list for PBXNativeTarget "VideoNetPlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD04B90F220E22DA0031AF47 /* Debug */,
+				AD04B910220E22DA0031AF47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ADAB26F8220352960080A411 /* Build configuration list for PBXProject "VideoNetPlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
